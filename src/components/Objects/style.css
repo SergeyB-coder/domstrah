@@ -1,0 +1,332 @@
+@media (max-width: 700px) {
+    .col-objitem-6 {
+        width: 100vw;
+    }
+
+    .body-obj-item {
+        background-color: #fafafa;
+        height: 200vh;
+    }
+
+    .menu-obj-item {
+        position: relative;
+        width: 92vw;
+        margin-left: 3vw;
+    }
+
+    .menu-item-main {
+        display: none;
+    }
+
+    .col-menuobjitem-2 {
+        width: 20vw;
+        margin-left: 13vw;
+    }
+
+    .col-menuobjitem-8 {
+        width: 55vw;
+    }
+
+    .title-objectitem {
+        padding: 2vh;
+        margin-left: 4vw;
+        background: rgba(44, 165, 236, 0.1);
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        width: 85vw;
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 26px;
+        /* identical to box height */
+    
+        font-feature-settings: 'pnum' on, 'lnum' on;
+    
+        /* Текст */
+    
+        color: #3F3F3F;
+    }
+    
+    .body-objectitem {
+        margin-left: 4vw;
+        padding-left: 4vw;
+        padding-right: 1vw;
+        /* background: rgba(217, 217, 217, 0.46); */
+        width: 85vw;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .block12 {
+        /* padding-left: 10vw; */
+        padding-top: 3vh;
+    }
+
+    .title-online {
+        margin-top: 10vh;
+        margin-left: 8vw;
+        width: 90vw;
+    }
+
+    .title-online-obj {
+        margin-top: 10vh;
+        margin-left: 8vw;
+        width: 85vw;
+    }
+
+    .block2 {
+        padding-top: 2vh;
+    }
+
+    .place-calc {
+        height: 65vh;
+    }
+}
+
+@media (min-width: 700px) {
+    .menu-item-main {
+        margin-left: 5vw;
+    }
+
+    .col-objitem-6 {
+        width: 44.8vw;
+    }
+
+    .body-obj-item {
+        background-color: #fafafa;
+        height: 138vh;
+    }
+
+    .menu-obj-item {
+        position: relative;
+        width: 50vw;
+        margin-left: 3vw;
+    }
+
+    .col-menuobjitem-2 {
+        width: 10vw;
+    }
+
+    .col-menuobjitem-8 {
+        width: 20vw;
+    }
+
+    .title-object {
+        padding: 2vh;
+        background: rgba(44, 165, 236, 0.1);
+        border-radius: 5px;
+        width: 35vw;
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 26px;
+        /* identical to box height */
+    
+        font-feature-settings: 'pnum' on, 'lnum' on;
+    
+        /* Текст */
+    
+        color: #3F3F3F;
+    }
+    
+    .body-object {
+        padding-left: 1vw;
+        padding-right: 1vw;
+        /* background: rgba(217, 217, 217, 0.46); */
+        width: 35vw;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .block12 {
+        padding-left: 10vw;
+        padding-top: 3vh;
+    }
+
+    .title-online {
+        margin-top: 10vh;
+        margin-left: 10vw;
+        width: 80vw;
+    }
+
+    .title-online-obj {
+        margin-top: 15vh;
+        margin-left: 9vw;
+        width: 90vw;
+    }
+
+    .block2 {
+        padding-top: 10vh;
+    }
+}
+
+.mortgage-registration {
+    background: #AD5B20;
+    border-radius: 10px;
+    color: white;
+}
+
+.container-objects {
+    min-height: 55vh;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 150%;
+    width: 100vw;
+    background-color:rgba(29, 29, 29, 0.5);
+}
+
+.title-object {
+    padding: 2vh;
+    background: rgba(44, 165, 236, 0.1);
+    border-radius: 5px;
+    width: 35vw;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    /* identical to box height */
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    /* Текст */
+
+    color: #3F3F3F;
+}
+
+.body-object {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    /* background: rgba(217, 217, 217, 0.46); */
+    width: 35vw;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.info-row-obj {
+    height: 7vh;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3vh;
+    line-height: 18px;
+    /* identical to box height */
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    /* Текст */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    color: #3F3F3F;
+}
+
+.fs-10 {
+    font-size: 12px;
+}
+
+.block1 {
+    /* padding-left: 10vw; */
+    /* padding-top: 10vh; */
+}
+
+
+
+
+
+.block22 {
+    padding-top: 3vh;
+}
+
+.w-30 {
+    width: 50vw;
+}
+
+
+
+.menu-obj-text-br {
+    border-right: rgba(0, 0, 0, 0.08);
+    border-right-width: 2px;
+    border-right-style: solid;
+}
+
+.font-obj-text {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: rgba(29, 29, 29, 0.5);
+}
+
+
+
+.t-dec {
+    text-decoration: none;
+}
+
+.menu-obj-text {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: rgba(29, 29, 29, 0.5);
+}
+
+
+
+.logo-menu-obj {
+    position: absolute;
+    left: 5vw;
+    background: rgba(44, 165, 236, 0.1);
+    border-radius: 71px;
+    padding: 0.8vh;
+    width: fit-content;
+}
+
+
+
+.text-online {
+    background: #24A200;
+    border-radius: 20px;    
+    color: white;
+    text-align: center;
+    width: fit-content;
+}
+
+.big-title-obj {
+    margin-left: 9vw;
+    margin-top: 2vh;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3vh;
+    line-height: 110%;
+    /* or 44px */
+
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    /* Текст */
+
+    color: #3F3F3F;
+}
+
+.under-title-obj {
+    margin-left: 9vw;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2vh;
+    line-height: 140%;
+    /* or 25px */
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    /* Текст 2 */
+
+    color: rgba(29, 29, 29, 0.5);
+}

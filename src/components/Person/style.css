@@ -1,0 +1,204 @@
+@media (max-width: 700px) {
+    .table {
+        display: none;
+    }
+
+    .col-chart-6 {
+        width: 90vw;
+    }
+
+    .menu-customer {
+        display: none;
+    }
+
+    .col-money-5 {
+        width: 75vw;
+    }
+
+    .person-info {
+        background-color: #FFFFFF;
+        margin-top: 3vh;
+        width: 80vw;
+    }
+
+    .person-info-item {
+        width: 65vw;
+    }
+
+    .btn-save {
+        cursor: pointer;
+        width: 30vw;
+        padding: 5px;
+        background: #2CA5EC;
+        box-shadow: 4px 5px 25px rgba(27, 27, 27, 0.08);
+        border-radius: 5px;
+    }
+
+    .border-b {
+        border: #3F3F3F solid 1px;
+    }
+}
+
+@media (min-width: 700px) {
+    .order-info-container {
+        width: 40vw;
+    }
+    .order {
+        cursor: pointer;
+    }
+    .order-hidden {
+        display: none;
+    }
+    .order:hover {
+        background-color: #a4a3a3;
+    }
+    .mobile-table {
+        display: none;
+    }
+    .col-chart-6 {
+        width: 45vw;
+    }
+
+    .col-money-5 {
+        width: 18vw;
+    }
+
+    .person-info {
+        background-color: #FFFFFF;
+        margin-top: 3vh;
+        width: 75vw;
+    }
+
+    .person-info-item {
+        width: 45vw;
+    }
+
+    .btn-save {
+        cursor: pointer;
+        width: 10vw;
+        padding: 5px;
+        background: #2CA5EC;
+        box-shadow: 4px 5px 25px rgba(27, 27, 27, 0.08);
+        border-radius: 5px;
+    }
+}
+
+
+.person-body {
+    background-color: #FAFAFA;
+    padding: 5vmax;
+}
+
+.person-info {
+    background-color: #FFFFFF;
+    margin-top: 3vh;
+}
+
+.person-input {
+    background-color: #FAFAFA;
+}
+
+
+
+.btn-save:hover {
+    background: #0f95e3;
+}
+
+.text-btn-save {
+    color: #FFFFFF;
+}
+
+.text-main {
+    cursor: pointer;
+}
+
+.text-change-password {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    /* identical to box height, or 16px */
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    /* Текст */
+
+    color: #3F3F3F;
+
+    cursor: pointer;
+}
+
+.chart-container {
+    height: 40vh;
+    /* width: 100vw; */
+}
+
+.bluemarker::marker {
+    color: #0088FE;
+    /* font-size: 1.5em; */
+}
+
+.greenmarker::marker {
+    color: #00C49F;
+}
+
+.orangemarker::marker {
+    color: #FFBB28;
+}
+
+.bg-w {
+    background-color: #FFFFFF;
+}
+
+.brd-r5 {
+    border-radius: 5px;
+}
+
+.fs-13 {
+    font-size: 13px;
+}
+
+.h-text {
+    height: 3vh;
+}
+
+.bl {
+    border-left: rgba(0, 0, 0, 0.08);
+    border-left-width: 2px;
+    border-left-style: solid;
+}
+
+.font-obj-text-sel {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: black;
+}
+
+.credit-info {
+    color: #0088FE;
+    cursor: pointer;
+}
+
+.credit-info:hover {
+    font-weight: bold;
+}
+
+.font-filter-credit {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    color: black;
+}
+
+.credit-hidden {
+    display: none;
+}
+
+
+
+
+

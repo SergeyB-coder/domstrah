@@ -1,0 +1,34 @@
+.title-news {
+    position: absolute;
+    bottom: 0;
+}
+
+.wa {
+    white-space: pre-wrap
+  }
+
+  
+
+@media (max-width: 700px) {
+    .col-newscard-3 {
+        width: 80vw;
+      }
+    .onenews-container {
+        width: 94vw;
+        margin-left: 3vw;
+    }
+}
+
+@media (min-width: 700px) {
+    .col-newscard-3 {
+        width: 27vw;
+      }
+    .onenews-container {
+        width: 80vw;
+        margin-left: 7vw;
+    }
+    .img-onenews {
+        float: left;
+        margin-right: 5vw;
+    }
+}

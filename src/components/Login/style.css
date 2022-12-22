@@ -1,0 +1,107 @@
+
+@media (max-width: 700px) {
+    .container-login {
+        height: 60vh;
+        width: 80vw;
+        margin-top: 20vh;
+        z-index: 10;
+        background-color: azure;
+        border-radius: 1vh;
+    }
+
+    .bg-img {
+        height: 100%;
+        /* width: 100%;  */
+        
+    }
+}
+
+@media (min-width: 700px) {
+    .container-login {
+        height: 60vh;
+        width: 20vw;
+        margin-top: 20vh;
+        z-index: 10;
+        background-color: azure;
+        border-radius: 1vh;
+    }
+    .bg-img {
+        /* /* height: 100%; */
+        width: 100%; 
+        
+    }
+}
+
+.bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+.logo-login {
+    z-index: 11;
+}
+
+.ww {
+    width: 25;
+}
+
+.title-input {
+    
+    font-size: 10px;
+    line-height: 1.5;
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+.label-forget {
+    
+    font-size: 10px;
+    line-height: 1.5;
+    display: inline-block;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.label-back {
+    font-size: 10px;
+    color: #2CA5EC;
+    cursor: pointer;
+}
+
+.label-reg {
+    font-size: 10px;
+    color: #24A200;
+    cursor: pointer;
+}
+
+.eye {
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+}
+
+.button-login {
+    background-color: #008ec2;
+    border-radius: 0.7vh;
+    height: 5vh;
+    /* margin: 1vmax; */
+}
+
+.button-login:hover {
+    cursor: pointer;
+}
+
+.label-button-login {
+    color: antiquewhite;
+}
+
+.label-button-login:hover {
+    cursor: pointer;
+}

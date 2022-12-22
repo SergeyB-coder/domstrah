@@ -1,0 +1,446 @@
+.h-f {
+    height: 90vh;
+    padding-top: 1vh;
+    position: relative;
+}
+
+.include-mortgage-card {
+    width: 37vw;
+    /* height: 25vh; */
+    border-radius: 5px;
+}
+
+@media (max-width: 700px) {
+    .m-title1 {
+        margin-left: 8vw;
+    }
+    .cookie {
+        text-align: left;
+
+    }
+    .include-mortgage-card {
+        width: 95vw;
+        /* height: 25vh; */
+        border-radius: 5px;
+    }
+    .min-w-20 {
+        min-width: 350px;
+    }
+    .resp-font {
+        font-size: 34px;
+    }
+    .how-reg-insur {
+        display: none;
+    }
+    .news {
+        display: none
+    }
+    .block-question {
+        width: 90vw;
+    }
+    .phone {
+        width: 90vw;
+        margin-left: 2vw;
+    }
+    .container-question {
+        background: rgba(44, 165, 236, 0.1);
+        border-radius: 5px;
+        margin-left: 5vw;
+        width: 90vw;
+        height: 60vh;
+        margin-bottom: 5vh;
+        margin-top: 5vh;
+        padding: 5px;
+    }
+    .footer-block4 {
+        width: 80vw;
+        margin-left: 7vw;
+    }
+    .footer-block2 {
+        margin-top: 3vh;
+        width: 80vw;
+        margin-left: 7vw;
+    }
+    .footer-block3 {
+        margin-top: 3vh;
+        width: 80vw;
+        margin-left: 7vw;
+    }
+    .prefooter-include-mortgage {
+        background: #3F3F3F;
+        height: 80vh;
+        position: relative;
+        margin-top: 5vh;
+        margin-bottom: 0;
+    }
+    .footer-include-mortgage {
+        position: absolute;
+        bottom: 0vh;
+        background: rgba(255, 255, 255, 0.1);
+        height: 7vh;
+        width: 100vw;
+    }
+    .footer-docs {
+        text-align: left;
+    }
+
+    .title-include-morgage {
+        margin-top: 7vh;
+        margin-bottom: 3vh;
+        margin-left: 5vw;
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 40px;
+        /* identical to box height */
+    
+        font-feature-settings: 'pnum' on, 'lnum' on;
+    
+        /* Текст */
+    
+        color: #3F3F3F;
+    }
+
+    .container-trust {
+        background: rgba(0, 0, 0, 0.03);
+        border-radius: 5px;
+        margin-right: 5vw;
+        margin-left: 5vw;
+    }
+
+    .conrainer-include-card {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    .title-question {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 26px;
+        /* identical to box height */
+
+        font-feature-settings: 'pnum' on, 'lnum' on;
+
+        /* Текст */
+
+        color: #3F3F3F;
+
+        margin-left: 2vw;
+    }
+    .text-question {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 130%;
+        /* or 16px */
+
+        font-feature-settings: 'pnum' on, 'lnum' on;
+
+        /* Текст 2 */
+
+        color: rgba(29, 29, 29, 0.5);
+        margin-left: 2vw;
+    }
+
+    .container-block-question {
+        width: 90vw;
+    }
+
+    .question {
+        display: none;
+    }
+
+    .start-block {
+        margin-left: 3vw;
+    }
+
+    .end-block {
+        /* margin-left: 3vw; */
+    }
+
+    .end-block-promo {
+        margin-left: 3vw;
+    }
+
+    .container-footer {
+        position: absolute;
+        top: 3vh;
+        width: 99vw;
+    }
+
+    .include-prom-card {
+        width: 97vw;
+        /* height: 30vh; */
+        /* border-radius: 5px; */
+    }
+    .banner-mobile {
+        /* height: 7vh; */
+        width:100%
+    }
+    .banner {
+        display: none;
+    }
+}
+
+@media (min-width: 700px) {
+    .m-title1 {
+        margin-left: 10vw;
+    }
+    .question {
+        margin-top: 40vh;
+    }
+
+    .container-block-question {
+        width: 45vw;
+        margin-top: 5vh;
+    }
+
+    .text-question {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 130%;
+        /* or 18px */
+
+        font-feature-settings: 'pnum' on, 'lnum' on;
+
+        /* Текст 2 */
+
+        color: rgba(29, 29, 29, 0.5);
+    }
+    .title-question {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 40px;
+        /* identical to box height */
+
+        font-feature-settings: 'pnum' on, 'lnum' on;
+
+        /* Текст */
+
+        color: #3F3F3F;
+
+        margin-top: 2vh;
+    }
+
+    .footer-docs {
+        text-align: right;
+    }
+
+    .cookie {
+        text-align: right;
+    }
+
+    .block-question {
+        width: 30vw;
+    }
+
+    .phone {
+        width: 15vw;
+    }
+
+    .container-question {
+        background: rgba(44, 165, 236, 0.1);
+        border-radius: 5px;
+        margin-left: 10vw;
+        width: 80vw;
+        height: 30vh;
+        margin-bottom: 15vh;
+        margin-top: 20vh;
+    }
+
+    .footer-block4 {
+        width: 25vw;
+        /* margin-left: 5vw; */
+    }
+
+    .footer-block2 {
+        width: 15vw;
+    }
+
+    .footer-block3 {
+        padding: 0px;
+        width: 20vw;
+        margin-left: auto;
+        margin-right: 0;
+    }    
+
+    .prefooter-include-mortgage {
+        background: #3F3F3F;
+        height: 35vh;
+        position: relative;
+    }
+
+    .footer-include-mortgage {
+        position: absolute;
+        top: 28vh;
+        background: rgba(255, 255, 255, 0.1);
+        height: 7vh;
+        /* width: 98.5vw; */
+        width: 100%;
+    }
+
+    .title-include-morgage {
+        margin-top: 20vh;
+        margin-bottom: 3vh;
+        margin-left: 10vw;
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 40px;
+        /* identical to box height */
+    
+        font-feature-settings: 'pnum' on, 'lnum' on;
+    
+        /* Текст */
+    
+        color: #3F3F3F;
+    }
+
+    .container-trust {
+        background: rgba(0, 0, 0, 0.03);
+        border-radius: 5px;
+        margin-right: 10vw;
+        margin-left: 10vw;
+    }
+
+    .conrainer-include-card {
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+
+    .start-block {
+        margin-left: 1vw;
+    }
+
+    .end-block {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .end-block-promo {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .container-footer {
+        position: absolute;
+        top: 3vh;
+        left: 10vw;
+        width: 81vw;
+    }
+
+    .include-prom-card {
+        width: 71vh;
+        /* height: 30vh; */
+        /* border-radius: 5px; */
+    }
+
+    .banner {
+        /* height: 7vh; */
+        width:100%
+    }
+    .banner-mobile {
+        display: none;
+    }
+}
+
+
+
+.min-w-20 {
+    width: 20vw;
+}
+
+
+
+.button-close {
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+}
+
+.container-banner {
+    position: relative;
+}
+
+
+
+
+.include-confidence-card {
+    width: 300px;
+    padding: 3vh;
+}
+
+
+
+
+
+.container-promo {
+    min-height: 62vh;
+}
+
+
+
+
+
+
+
+
+
+.how-reg-insur {
+    margin-top: 10vh;
+    min-height: 90vh;
+}
+
+.container-how-reg-content {
+    margin-left: 10vw;
+    width: 85vw;
+}
+
+.news {
+    height: 55vh;
+    width: 80vw;
+    margin-left: 10vw;
+}
+
+.container-news {
+    height: 50vh;
+}
+
+.news-card {
+    height: 37vh;
+    width: 33.5vh;
+}
+
+.but-news {
+    width: 33.5vh;
+}
+
+
+
+.mrg-reg-info {
+    margin-left: 2.2vw;
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+
+@keyframes slidein {
+    from {
+        margin-top: -5vh;
+    }
+  
+    to {
+        margin-top: 0vh;
+    }
+  }
+

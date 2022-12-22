@@ -1,0 +1,373 @@
+@media (max-width: 700px) {
+    .col-doc-title-3 {
+        /* width: 50vw; */
+        margin-left: 2vw;
+    }
+    .issue_by {
+        width: 74vw;
+    }
+
+    .address-reg {
+        width: 74vw;
+    }
+    .container-reg {
+        /* padding: 2vh; */
+        position: absolute;
+        top: 80vh;
+        left: 3vw;
+        /* margin-top: 10vh;
+        margin-left: 15vw; */
+        background: #fafafa;
+        width: 94vw;
+        border-radius: 5px;
+        z-index: 4;
+    }
+
+    .col-name-3 {
+        width: 80vw;
+    }
+
+    .col-birthday-2 {
+        width: 35vw;
+        /* margin-left:  */
+    }
+
+    .col-sex-1 {
+        /* margin-left: 5vw; */
+        padding: 0px;
+        width: 30vw;
+        margin-left: auto; 
+        margin-right: 7vw;        
+    }
+
+    .col-grow-2 {
+        width: 40vw;
+    }
+
+    .col-weight-1 {
+        padding: 0px;
+        width: 30vw;
+        margin-left: auto;
+        margin-right: 7vw;
+    }
+
+    .col-doc-3 {
+        width: 80vw;
+    }
+
+    .col-number-2 {
+        width: 80vw
+    }
+
+    .col-issue-date-2 {
+        width: 35vw;
+    }
+
+    .col-code-2 {
+        padding: 0px;
+        width: 35vw;
+        margin-left: auto;
+        margin-right: 7vw;
+    }
+
+    .col-bank-4 {
+        width: 35vw;
+    }
+
+    .col-balance-4 {
+        width: 35vw;
+    }
+
+    .col-creditnumber-4 {
+        width: 80vw;
+    }
+
+    .container-data {
+        background: white;
+        /* margin: 0.5vmax; */
+        padding: 1vmax;
+    }
+
+    .col-datebegin-4 {
+        width: 80vw;
+    }
+
+    .col-typeestate-4 {
+        width: 40vw;
+    }
+
+    .col-yearbuild-2 {
+        width: 35vw;
+    }
+
+    .col-addressobj-6 {
+        width: 80vw;
+    }
+
+    .col-checkobj-6 {
+        width: 80vw;
+    }
+
+    .col-email-6 {
+        width: 80vw;
+    }
+
+    .col-phone-6 {
+        width: 80vw;
+    }
+
+    .col-cost-6 {
+        width: 80vw;
+    }
+
+    .col-testdata-6 {
+        width: 80vw;
+    }
+
+    .col-back-6 {
+        width: 27vw;
+    }
+
+    .col-buy-3 {
+        width: 27vw;
+        padding: 0;
+    }
+
+    .birthday-reg {
+        height: 4.5vh;
+        width: 100%;
+        border-color: #c8c7c7;
+        border-radius: 5px;
+        border-width: 1px;
+        border-style: solid;
+        padding-left: 5px;
+    }
+
+    .front {
+        z-index: 15;
+        width: 80vw;
+    }
+}
+
+
+@media (min-width: 700px) {
+    .birthday-reg {
+        height: 5vh;
+        width: 100%;
+        border-color: #c8c7c7;
+        border-radius: 5px;
+        border-width: 1px;
+        border-style: solid;
+        padding-left: 5px;
+    }
+
+    
+
+    .col-doc-title-3 {
+        width: 18vw;
+    }
+    .container-reg {
+        padding: 2vh;
+        position: absolute;
+        top: 48vh;
+        left: 10vw;
+        /* margin-top: 10vh;
+        margin-left: 15vw; */
+        background: #fafafa;
+        width: 80vw;
+        border-radius: 5px;
+        z-index: 4;
+    }
+
+    .col-name-3 {
+        width: 18vw;
+    }
+
+    .col-birthday-2 {
+        padding: 0;
+        margin-left: 1vw;
+        width: 8vw;
+    }
+
+    .col-sex-1 {
+        margin-left: auto;
+        margin-right: 0;
+        width: 11vw;
+    }
+
+    .col-grow-2 {
+        width: 15vw;
+    }
+
+    .col-weight-1 {
+        width: 7vw;
+    }
+
+    .col-doc-3 {
+        width: 20vw;
+    }
+
+    .col-number-2 {
+        width: 12vw
+    }
+
+    .col-issue-date-2 {
+        padding: 0;
+        margin-left: 1vw;
+        /* margin-left: auto;
+        margin-right: 0; */
+        /* width: fit-content; */
+        width: 8vw;
+    }
+
+    .col-code-2 {
+        margin-left: auto;
+        margin-right: 0;
+        width: 11vw;
+    }
+
+    .cont-date {
+        width: 100%;
+        /* margin-left: 5vw; */
+    }
+
+    .col-bank-4 {
+        width: 27vw;
+    }
+
+    .col-balance-4 {
+        width: 27vw;
+    }
+
+    .col-creditnumber-4 {
+        width: 27vw;
+    }
+
+    .container-data {
+        background: white;
+        margin: 1vmax;
+        z-index: 0;
+    }
+    
+    .col-datebegin-4 {
+        width: 27vw;
+    }
+
+    .col-typeestate-4 {
+        width: 25vw;
+    }
+
+    .col-yearbuild-2 {
+        width: 15vw;
+    }
+
+    .col-addressobj-6 {
+        width: 45vw;
+    }
+
+    .col-checkobj-6 {
+        width: 40vw;
+    }
+
+    .col-email-6 {
+        width: 40vw;
+    }
+
+    .col-phone-6 {
+        width: 40vw;
+    }
+
+    .col-cost-6 {
+        width: 40vw;
+    }
+
+    .col-testdata-6 {
+        width: 40vw;
+    }
+
+    .col-back-6 {
+        width: 35vw;
+    }
+
+    .col-buy-3 {
+        width: 17vw;
+    }
+
+    .front {
+        z-index: 15;
+        width: 40vw;
+    }
+}
+
+
+.error-message {
+    font-size: x-small;
+    color: red;
+    position: absolute;
+}
+
+.stepinfo {
+    background: #24a200;
+    color: #fff;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+
+
+.inp-holder {
+    background-color: #fafafa;
+}
+
+.fs-10 {
+    font-size: 10px;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+.promt {
+    word-wrap: break-word;
+    padding: 3px;
+    position: absolute;
+    top: 3vh;
+    width: 10vw;
+    background-color: #f8f9f8;
+    border-radius: 3px;
+    border: 1px solid #24A200;
+    box-shadow: 2px 2px 2px rgb(85, 84, 84);
+    z-index: 10;
+}
+
+.button-credit {
+    display: inline-block; 
+    /* padding: 11px 40px 13px 40px;  */
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 5vh;
+    background: linear-gradient(350deg, #52ae30 27.09%, #74bf1e 65.61%); 
+    border-radius: 4px; 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 16px; 
+    font-weight: 700; 
+    /* line-height: 24px; */
+}
+
+
+@media (min-width: 700px) {
+    .hide-mobile {
+
+    }
+}
+
+@media (max-width: 700px) {
+    .hide-mobile {
+        display: none;
+    }
+}

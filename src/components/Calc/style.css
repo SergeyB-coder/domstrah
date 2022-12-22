@@ -1,0 +1,278 @@
+/* maincalc */
+
+
+
+@media (max-width: 700px) {
+
+    .main-calc-wrapper-obj {
+        position: absolute;
+        top: 99vh;
+        left: 10vw;
+        width: 80vw;
+        margin: 0 auto;
+    }
+
+    .col-insure-2 {
+        width: 30vw;
+    }
+    .check-price-block {
+        width: 80vw;
+    }
+    .calc-info-block-3 {
+        width: 37vw;
+    }
+
+    .calc-info-block-33 {
+        width: 37vw;
+    }
+
+    .main-calc-wrapper {
+        position: absolute;
+        top: 50vh;
+        left: 3vw;
+        width: 94vw;
+        margin: 0 auto;
+    }
+
+    .calc-info-block2-2 {
+        width: 40vw;
+    }
+
+    .calc-info-block2-3 {
+        width: 90vw;
+    }
+
+    .calc-info-block2-4 {
+        width: 90vw;
+    }
+
+    .birthday {
+        border-color: #c8c7c7;
+        border-radius: 5px;
+        border-width: 1px;
+        border-style: solid;
+        height: 4vh;
+        width: 35vw;
+        padding-left: 5px;
+    }
+
+    .logo {
+        width: 25vw;
+        /* height: 4vw; */
+    }
+    .calc-discount {
+        position: absolute;
+        background-color: #DC3535;
+        border-radius: 5px;
+        left: 35vw;
+        top: 1vh;
+        color: white;
+        padding: 5px;
+        width: 12vw;
+    }
+
+    .personal-cost {
+        position: relative;
+    }
+    .double-insurance {
+        display: none;
+    }
+}
+
+
+@media (min-width: 700px) {
+    .double-insurance {
+        width: 20vw;
+    }
+    .main-calc-wrapper {
+        position: absolute;
+        top: 47vh;
+        left: 10vw;
+        width: 80vw;
+        margin: 0 auto;
+    }
+
+    .select-banks {
+        width: 15vw;
+    }
+
+    .select-banks-info {
+        width: 20vw;
+    }
+
+    .inp-calc {
+        height: 5vh;
+    }
+
+    .main-calc-wrapper-obj {
+        position: absolute;
+        top: 65vh;
+        left: 10vw;
+        width: 80vw;
+        margin: 0 auto;
+    }
+
+    .col-insure-2 {
+        width: 15vw;
+    }
+    .check-price-block1 {
+        width: 12vw;
+    }
+
+    .check-price-block2 {
+        width: 40vw;
+    }
+
+    .calc-info-block-3 {
+        width: 20vw;
+        margin-right: 3vw;
+    }
+
+    .calc-info-block-33 {
+        width: 20vw;
+        margin-left: auto;
+        margin-right: 2vw;
+    }
+
+    .calc-info-block2-2 {
+        width: 10vw;
+        margin-left: 3vw;
+    }
+
+    .calc-info-block2-3 {
+        width: 15vw;
+        margin-left: auto;
+        margin-right: 2vw;
+    }
+
+    .calc-info-block2-4 {
+        width: 20vw;
+    }
+
+    .birthday {
+        border-color: #c8c7c7;
+        border-radius: 5px;
+        border-width: 1px;
+        border-style: solid;
+        height: 5vh;
+        width: 7vw;
+        padding-left: 5px;
+    }
+
+    .logo {
+        width: 6vw;
+        height: 4vw;
+    }
+
+    .calc-discount {
+        position: absolute;
+        background-color: #DC3535;
+        border-radius: 5px;
+        left: 8vw;
+        top: 1vh;
+        color: white;
+        padding: 5px;
+        width: 3vw;
+    }
+
+    .personal-cost {
+        position: relative;
+    }
+
+    .credit-info-month {
+        width: fit-content;
+        background-color: #24A200;
+        border-radius: 10px;
+        color: white;
+    }
+}
+
+.promt-credit {
+    word-wrap: break-word;
+    padding: 3px;
+    position: absolute;
+    top: 3vh;
+    width: 10vw;
+    /* background-color: #24a200; */
+    border-radius: 3px;
+    border: 1px solid #24A200;
+    background-color: #f8f9f8;
+    box-shadow: 2px 2px 2px rgb(85, 84, 84);
+}
+.title-calc {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.main-calc-wrapper .frame {
+    -webkit-box-shadow: 4px 5px 25px rgb(27 27 27 / 8%);
+    box-shadow: 4px 5px 25px rgb(27 27 27 / 8%);
+}
+
+.frame {
+    padding: 1vw;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+}
+
+
+
+.select_wrapper {position: relative;}
+
+.pos-input-range {
+    position: absolute;
+    bottom: -1vh;
+    left: 0px;
+}
+
+
+/* infocalc */
+
+.calc-frame {max-width: 1000px;}
+
+.select2-container--default  {
+    max-height: none; 
+    -webkit-box-shadow: 4px 5px 25px rgba(27, 27, 27, 0.08); 
+    box-shadow: 4px 5px 25px rgba(27, 27, 27, 0.08); 
+    border-top: 1px solid #f4f4f4; 
+    border-radius: 5px;
+}
+
+
+
+.f-s {
+    font-size: small;
+}
+
+
+
+.gender {
+    height: 5vh; 
+}
+
+.bg-lg {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.policy-cost {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 57px;
+}
+
+.promt-doc {
+    word-wrap: break-word;
+    padding: 3px;
+    position: absolute;
+    top: 3vh;
+    width: 20vw;
+    /* background-color: #24a200; */
+    border-radius: 3px;
+    border: 1px solid #24A200;
+    background-color: #f8f9f8;
+    box-shadow: 2px 2px 2px rgb(85, 84, 84);
+}
+

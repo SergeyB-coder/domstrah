@@ -1,0 +1,25 @@
+
+
+@media (max-width: 700px) { 
+    .one-promo {
+        height: 62vh;
+        width: 100vw;
+    }
+
+    .img-promo {
+        width: 100vw;
+    }
+}
+
+
+@media (min-width: 700px) {
+    .one-promo {
+        height: 62vh;
+    }
+    .img-promo {
+        width: 30vw;
+    }
+    .onepromo-container {
+        margin-left: 6vw;
+    }
+}

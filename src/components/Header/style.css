@@ -1,0 +1,115 @@
+.container {
+    background-color: #FFFFFF;
+    height: 8vh;
+}
+
+.container-logo {
+    width: 32px;
+    height: 32px;
+
+    /* Корп 20 */
+
+    background: rgba(44, 165, 236, 0.1);
+    border-radius: 41px;
+}
+
+.container-logo:hover {
+    cursor: pointer;
+}
+
+.person-page {
+    color: #3F3F3F;
+    text-decoration: none;
+}
+
+.text-goout {
+    cursor: pointer;
+}
+
+.header-phone {
+    background: rgba(44, 165, 236, 0.1);
+    border-radius: 20px;  
+    width: fit-content;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 130%;
+    /* or 18px */
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    /* корп 4 */
+
+    color: #2CA5EC;
+}
+
+.text-nodecor {
+    text-decoration: none;
+}
+
+.header-mort-insur {
+    /* position: relative; */
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    /* identical to box height */
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    /* Текст */
+
+    color: #3F3F3F;
+    
+}
+
+.header-mort-insur:hover {
+    cursor: pointer;
+}
+
+.menu-item-insur {
+    position: absolute;
+    top: 4vh;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: #3F3F3F;
+    width: 20vw;
+}
+
+.menu-item-insur:hover {
+    cursor: pointer;
+}
+
+
+@media (max-width: 700px) {
+    .mobile-hide {
+        display: none;
+    }
+    .container-logo svg {
+        width: 37px;
+        height: 37px;
+    }
+    .container-logo {
+        width: 47px;
+        height: 47px;
+    
+        /* Корп 20 */
+    
+        background: rgba(44, 165, 236, 0.1);
+        border-radius: 41px;
+    }
+}
+
+@media (min-width: 700px) {
+    .mobile-show {
+        display: none;
+    }
+}
+

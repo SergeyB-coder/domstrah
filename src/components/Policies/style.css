@@ -1,0 +1,54 @@
+.policy-info {
+    /* margin-top: 10vh;
+    margin-left: 10vw; */
+    height: 55vh;
+    width: 70vw;
+    /* background: linear-gradient(102.75deg, rgba(255, 255, 255, 0.6) 17.42%, rgba(255, 255, 255, 0) 43.56%) */
+}
+
+.policy-body {
+    background-color: #FAFAFA;
+    padding: 10vmax;
+}
+
+.policy-framed {
+    background: #24A200;
+    border-radius: 28px;    
+}
+
+.container-policy-framed {
+    position: absolute;
+    top: 3vh;
+    left: 3vw;
+}
+
+.text-policy-framed {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 130%;
+    /* or 18px */
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    /* Фон 1 бел */
+
+    color: #FFFFFF;
+}
+
+.label-policy-framed {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    /* identical to box height */
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    /* Текст */
+
+    color: #3F3F3F
+}
+

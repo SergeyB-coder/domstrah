@@ -1,0 +1,85 @@
+.button-reg {
+    background-color: #2CA5EC;
+    border-radius: 0.7vh;
+    height: 5vh;
+    /* margin: 1vmax; */
+}
+
+@media (max-width: 700px) {
+    .button-login-light {
+        background-color: rgba(44, 165, 236, 0.1);
+        border-radius: 5px;
+        height: 5vh;
+        width: 40vw;
+        position: relative;
+    }
+
+    .button-buy {
+        background-color: rgba(44, 165, 236, 0.1);
+        border-radius: 5px;
+        height: 4.5vh;
+        width: 25vw;
+        position: relative;
+    }
+}
+
+@media (min-width: 700px) {
+    .button-login-light {
+        background-color: rgba(44, 165, 236, 0.1);
+        border-radius: 5px;
+        height: 5vh;
+        width: 10vw;
+        position: relative;
+    }
+
+    .button-buy {
+        background-color: rgba(44, 165, 236, 0.1);
+        border-radius: 5px;
+        height: 5vh;
+        width: 12vw;
+        position: relative;
+    }
+}
+
+.button-login-light:hover {
+    cursor: pointer;
+    background-color: #e0eaef;
+}
+
+.button-reg:hover {
+    cursor: pointer;
+    background-color: #1984c2;
+}
+
+.label-button-reg {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 21px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    /* белый */
+
+    color: #FFFFFF;
+}
+
+.label-button-test {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 21px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+
+    color: #2CA5EC;
+}
+
+.label-button-reg:hover {
+    cursor: pointer;
+}
+
+.label-button-test:hover {
+    cursor: pointer;
+}

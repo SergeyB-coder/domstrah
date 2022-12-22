@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  height: 100%;
+  width: 100vw;
 }
 
 .App-logo {
@@ -10,6 +12,18 @@
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-float infinite 3s ease-in-out;
+  }
+}
+
+@media (max-width: 700px) {
+  .h-27 {
+    height: 20vh;
+  }
+}
+
+@media (min-width: 700px) {
+  .h-27 {
+    height: 27vh;
   }
 }
 
@@ -37,3 +51,385 @@
     transform: translateY(0px);
   }
 }
+
+.font-raleway-700 {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.f-s15 {
+  font-size: 15px;
+}
+
+.color-w {
+  color: white;
+}
+
+.color-green {
+  color: #24A200;
+}
+
+.color-gr {
+  color: #3F3F3F
+}
+
+.f-raleway-reg-pol {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height */
+
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Текст */
+
+  color: #3F3F3F;
+}
+
+.f-raleway {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 110%;
+  /* or 66px */
+
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Текст */
+
+  color: #3F3F3F;
+}
+
+.f-raleway-mini {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 140%;
+  /* or 25px */
+
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Текст 2 */
+
+  color: rgba(29, 29, 29, 0.5);
+}
+
+.f-raleway-12 {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 140%;
+  /* or 25px */
+
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Текст 2 */
+
+  color: rgba(29, 29, 29, 0.5);
+}
+
+.f-raleway-x-mini {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+  /* or 18px */
+
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Текст */
+
+  color: #3F3F3F;
+}
+
+.f-raleway-x-mini-g {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+  /* or 18px */
+
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Текст */
+
+  color: rgba(29, 29, 29, 0.5);
+}
+
+.f-raleway-xs {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  /* or 16px */
+
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Фон 1 бел */
+
+  color: #FFFFFF;
+}
+
+.f-raleway-15 {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Текст */
+
+  color: #3F3F3F;
+}
+
+.f-raleway-wt {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Фон 1 бел */
+
+  color: #FFFFFF;
+}
+
+.f-raleway-gr {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+
+  text-align: right;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Корп 2 */
+
+  color: #24A200;
+}
+
+
+.f-raleway-xs-h {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  /* or 16px */
+
+  
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Фон 1 бел */
+
+  color: #FFFFFF;
+
+  opacity: 0.5;
+}
+
+.f-raleway-xs-blue {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  /* or 16px */
+
+  /* text-align: right; */
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Фон 1 бел */
+
+  color: #2CA5EC;
+
+  opacity: 0.5;
+}
+
+
+
+.f-raleway-m {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Текст */
+
+  color: #3F3F3F;
+}
+
+.f-raleway-m-gr {
+  
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 26px;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  color: #24A200;
+}
+
+.f-raleway-l {
+
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 140%;
+  /* or 25px */
+
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Текст */
+
+  color: #3F3F3F;
+}
+
+
+.f-raleway-xl {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 40px;
+    /* identical to box height */
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    /* Текст */
+
+    color: #3F3F3F;
+}
+
+.color-blue {
+  color: #2CA5EC;
+}
+
+
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-ar {
+  text-align: right;
+}
+
+.ml-4 {
+  margin-left: 4vw;
+}
+
+.ml-5 {
+  margin-left: 5vw;
+}
+
+.ml-7 {
+  margin-left: 7vw;
+}
+
+.mr-7 {
+  margin-right: 7vw;
+}
+
+.ml-8 {
+  margin-left: 8vw;
+}
+
+.ml-10 {
+  margin-left: 10vw;
+}
+
+.mt-7 {
+  margin-top: 7vh;
+}
+
+.ms-10 {
+  margin-left: 10vw;
+}
+
+.pt-20 {
+  padding-top: 20vh;
+}
+
+.pt-18 {
+  padding-top: 18vh;
+}
+
+.pt-10 {
+  padding-top: 10vh;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.cur-p {
+  cursor: pointer;
+}
+
+.cur-p-h {
+  cursor: pointer;
+}
+
+.cur-p-h:hover {
+  color: #2CA5EC;
+}
+
+.w-20 {
+  width: 20vw;
+}
+
+.w-18 {
+  width: 18vw;
+}
+
+.h-4-5 {
+  height: 4.5vh;
+}
+
+.h-20 {
+  height: 20vh;
+}
+
+
+
+.h-40 {
+  height: 40vh;
+}
+
+.br-5 {
+  border-radius: 5px;
+}
+
+.dec-no {
+  text-decoration: none;
+}
+
+.bg-grey {
+  background-color: rgba(29, 29, 29, 0.5);;
+}
+
+
+
