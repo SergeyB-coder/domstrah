@@ -153,26 +153,26 @@ export function Orders() {
             <div>
                 <div className='row'>
                     <div className='col-3 d-flex align-items-center'>
-                        <label class="form-check-label mx-2 font-filter-credit " for="w">
+                        <label classname="form-check-label mx-2 font-filter-credit " for="w">
                             В работе
                         </label>
-                        <input class="form-check-input m-0 p-0" type="radio" name='w' id='w'  
+                        <input classname="form-check-input m-0 p-0" type="radio" name='w' id='w'  
                             onChange={onChangeFilterOrdersWork}
                             checked={filterOrdersValue === 'work'}
                         />
                     </div>
                     <div className='col-3 d-flex align-items-center'>
-                        <label class="form-check-label mx-2 font-filter-credit " for="w">
+                        <label classname="form-check-label mx-2 font-filter-credit " for="w">
                             Архив
                         </label>
-                        <input class="form-check-input m-0 p-0" type="radio" name='w' id='w'  
+                        <input classname="form-check-input m-0 p-0" type="radio" name='w' id='w'  
                             onChange={onChangeFilterOrdersArchive}
                             checked={filterOrdersValue === 'archive'}
                         />
                     </div>
                 </div>
                 
-                <table class="table bg-w brd-r5 mt-4">
+                <table classname="table bg-w brd-r5 mt-4">
                     <thead>
                         <tr>
                             {/* <th scope="col" className='fs-13'>ID</th> */}

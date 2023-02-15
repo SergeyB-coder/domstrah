@@ -3,12 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import './style.css'
 import { LogoSVGfooter } from '../../static/Const/vars';
 import { URL } from '../../static/Const/vars';
-
+import { cardsSVG, cardsSVGmir } from '../../static/Svg/paykeeper';
 
 export function Footer(props) {
     const handleScrollToCalc = () => {
         window.scrollTo(0, 0)
     }
+
+    const navigate = useNavigate();
     return (
         <div className='prefooter-include-mortgage'>
             <div className='d-flex row container-footer'>
@@ -73,6 +75,9 @@ export function Footer(props) {
                             <div className='f-raleway-xs'>Контакты</div>
                         </Link>
                     </div>
+                    <div className='mt-4'>
+                        {cardsSVGmir}
+                    </div>
                 </div>
                 <div className='footer-block3'>
                     <div>
@@ -88,6 +93,13 @@ export function Footer(props) {
                     </div>
                     <div className='d-flex footer-docs'>
                         <a target='_blank' href={URL + '/static/docs/politic.html'} className='f-raleway-xs-blue cur-p mt-2 dec-no w-100'>Политика конфеденциальности</a>
+                    </div>
+                    <div className='d-flex footer-docs'>
+                        <div target='_blank' href={URL + '/static/docs/politic.html'} className='f-raleway-xs-blue cur-p mt-2 dec-no w-100'
+                            onClick={() => {navigate('/legal', {replace: true})}}
+                        >
+                            Правовая информация
+                        </div>
                     </div>
                 </div>
             </div>

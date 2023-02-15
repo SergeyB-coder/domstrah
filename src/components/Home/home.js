@@ -21,7 +21,7 @@ import { sendGetPromo } from '../Promo/promoapi';
 import { Confidence } from './confidence';
 import { Included } from './included';
 import { HowReg } from './howreg';
-import { selectLifeOption, selectPropertyOption, selectBannerUrl, selectBannerUrlMobile, selectBannerIsOn, setBannerUrlMobile, selectPremiumSum } from './homeSlice';
+import { selectLifeOption, selectPropertyOption, selectBannerUrl, selectBannerUrlMobile, selectBannerIsOn, setBannerUrlMobile, selectPremiumSum, selectMortgageBalance } from './homeSlice';
 import { setBannerUrl, setBannerIsOn, setPremiumSum, setToken } from './homeSlice';
 import { Banner } from './banner';
 
@@ -35,7 +35,7 @@ export function Home(props) {
     const propertyOption = useSelector(selectPropertyOption)
     const premiumSum = useSelector(selectPremiumSum)
     const [calcStep, setCalcStep] = useState('main') // main, info
-    const [mortgageBalance, setMortgageBalance] = useState(0)
+    const mortgageBalance = useSelector(selectMortgageBalance)
     // const [premiumSum, setPremiumSum] = useState(0)
     // const [discount, setDiscount] = useState(0)
     
@@ -170,8 +170,6 @@ export function Home(props) {
                 {calcStep === 'main' ? (
                     <MainCalc 
                         setCalcStep={setCalcStep}
-                        mortgageBalance={mortgageBalance}
-                        setMortgageBalance={setMortgageBalance}
                         getToken={handleGetToken}
                         getCostPolicy={getCostPolicy}
                         showFormManager={showFormManager}
@@ -184,8 +182,6 @@ export function Home(props) {
                 {calcStep === 'info' ? (
                     <InfoCalc 
                         setCalcStep={setCalcStep}
-                        mortgageBalance={mortgageBalance}
-                        setMortgageBalance={setMortgageBalance}
                         getCostPolicy={getCostPolicy}
                         isLoadCost={isLoadCost}
                         showCostPolicy={showCostPolicy}
@@ -200,8 +196,6 @@ export function Home(props) {
                         lifeOption={lifeOption}
                         propertyOption={propertyOption}
                         setCalcStep={setCalcStep}
-                        mortgageBalance={mortgageBalance}
-                        setMortgageBalance={setMortgageBalance}
                         setShowFormManager={setShowFormManager}
                         showFormManager={showFormManager}
                     />

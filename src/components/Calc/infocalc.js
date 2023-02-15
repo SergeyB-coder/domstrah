@@ -13,12 +13,15 @@ import { ErrMessage } from '../Home/errmessage';
 import { digitNumber } from '../../features/funcs';
 
 import { selectTypeObject, selectIdBank, selectIsManagerCost, selectInsuranceLogo, selectInsuranceCompany, selectDiscount, selectPromt, selectPromtCredit, selectPromtProperty, selectIsDoubleInsurance, setIsDoubleInsurance, setInsuranceCompany2, selectInsuranceCompany2 } from './calcSlice';
-import { setIsManagerCost, setIdBank, setInsuranceLogo, setInsuranceCompany } from './calcSlice';
-import { list_banks, list_banks1 } from '../../static/Const/vars';
-import { getParseData, getParseDataLife, getParseDataLifeAndProperty, preCalc, preCalcLife } from './calcapi';
+import { setIsManagerCost, setIdBank, setTypeObject, setInsuranceCompany } from './calcSlice';
+import { list_banks, list_banks1, TYPES_OBJECT_ABSOLUTE } from '../../static/Const/vars';
+import { getParseData, getParseDataLife, getParseDataLifeAndProperty, preCalc, preCalcLife, testPrint } from './calcapi';
 
-import { selectLifeOption, selectPremiumSum, selectPropertyOption, setLifeOption, setPropertyOption, setPremiumSum, selectToken, selectCookie, setPremiumSum2, selectPremiumSum2 } from '../Home/homeSlice';
-import { DoubleInsurance } from './calcElements';
+import { selectLifeOption, selectPremiumSum, selectPropertyOption, setLifeOption, setPropertyOption, setPremiumSum, selectToken, selectCookie, setPremiumSum2, selectPremiumSum2, selectMortgageBalance, setMortgageBalance } from '../Home/homeSlice';
+import { CreditInfo6, DoubleInsurance, DropDown, RangeInput } from './calcElements';
+import { selectBirthday, setBirthday } from '../RegPolice/regpoliceSlice';
+import { Calendar } from './calendar';
+import { Calendar1 } from './calendar1';
 
 export function InfoCalc(props) {
     const dispatch = useDispatch();
@@ -39,9 +42,10 @@ export function InfoCalc(props) {
     const promtCredit = useSelector(selectPromtCredit)
     const premiumSum = useSelector(selectPremiumSum)
     const premiumSum2 = useSelector(selectPremiumSum2)
+    const birthday = useSelector(selectBirthday)
+    const mortgageBalance = useSelector(selectMortgageBalance)
     const setShowFormManager = props.setShowFormManager
     const [listInsurance, setListInsurance] = useState([])
-    const [startDate, setStartDate] = useState(new Date('2000-01-01'));
     const [gender, setGender] = useState('1')
     const [isLoad, setIsLoad] = useState(false)
     const [showPromt, setShowPromt] = useState(false)
@@ -95,14 +99,14 @@ export function InfoCalc(props) {
     function handleParseData(...par) {
         console.log('idBank', idBank)
         setIsLoad(true)
-        const pars = {idBank: idBank, mortgageBalance: props.mortgageBalance}
+        const pars = {idBank: par.length === 1 ? par[0]: idBank, mortgageBalance: mortgageBalance}
         getParseData(pars, function (data) {
                 setIsLoad(false)
                 let premium = premiumSum
                 if (par.length === 1) {
                     premium = par[0]
                 }
-                if (idBank !== '1') {
+                if (idBank !== '1' && idBank !== '2') {
                     setInfoForAnotherBank(data)
                 }
                 else {
@@ -126,9 +130,9 @@ export function InfoCalc(props) {
         if (gender === '2') {gender_par = 'female'}
         const pars = {
             idBank: idBank,
-            mortgageBalance: props.mortgageBalance,
+            mortgageBalance: mortgageBalance,
             gender_par: gender_par,
-            birthday: startDate.toLocaleDateString().split('.').reverse().join('-'),
+            birthday: birthday.toLocaleDateString().split('.').reverse().join('-'),
         }
         getParseDataLife (pars, function(data)  {
                 console.log(data)
@@ -137,7 +141,7 @@ export function InfoCalc(props) {
                 if (par.length === 1) {
                     premium = par[0]
                 }
-                if (idBank !== '1') {
+                if (idBank !== '1' && idBank !== '2') {
                     setInfoForAnotherBank(data)
                 }
                 else {
@@ -163,9 +167,9 @@ export function InfoCalc(props) {
         if (gender === '2') {gender_par = 'female'}
         const pars = {
             idBank: idBank,
-            mortgageBalance: props.mortgageBalance,
+            mortgageBalance: mortgageBalance,
             gender_par: gender_par,
-            birthday: startDate.toLocaleDateString().split('.').reverse().join('-'),
+            birthday: birthday.toLocaleDateString().split('.').reverse().join('-'),
         }
         getParseDataLifeAndProperty (pars, function(data) {
                 console.log('getParseDataLifeAndProperty', data)
@@ -174,7 +178,7 @@ export function InfoCalc(props) {
                 if (par.length === 1) {
                     premium = par[0]
                 }
-                if (idBank !== '1') {
+                if (idBank !== '1' && idBank !== '2') {
                     setInfoForAnotherBank(data)
                 }
                 else {
@@ -215,7 +219,9 @@ export function InfoCalc(props) {
     }
 
     const handleChangeLifeOption = () => {
-        if (idBank === '1') {
+        dispatch(setPremiumSum(0))
+        dispatch(setPremiumSum2(0))
+        if (idBank === '1' || idBank === '2') {
             if (!lifeOption) {
                 props.setIsLoadCost(true)
                 props.setShowCostPolicy(false)
@@ -233,7 +239,6 @@ export function InfoCalc(props) {
                     handleGetCostPolicy()
                 }
                 else {
-                    dispatch(setPremiumSum(0))
                     props.setIsLoadCost(false)
                     props.setShowCostPolicy(true)
                 }
@@ -246,41 +251,10 @@ export function InfoCalc(props) {
         dispatch(setLifeOption(!lifeOption))
     }
 
-    const handleGetCostPolicyLifeAndProperty = () => {
-        setListInsurance([])
-        preCalcLife({
-            cookie: cookie,
-            token: token,
-            limit_sum: props.mortgageBalance,
-            sex: gender === '1' ? 'М': 'Ж',
-            birthday: startDate.toISOString().slice(0, -5),
-        }, (data) => {
-            let premium_life = parseFloat(data.res.premium)
-            let company_life = data.res.company
-            console.log('company_life', company_life)
-            preCalc({token: token, cookie: cookie, limit_sum: props.mortgageBalance}, (data) => {
-                if (data.res.company !== company_life) {
-                    dispatch(setIsDoubleInsurance(true))
-                    dispatch(setPremiumSum(parseFloat(data.res.premium)))
-                    dispatch(setPremiumSum2(premium_life))
-                    dispatch(setInsuranceCompany(data.res.company))
-                    dispatch(setInsuranceCompany2(company_life))
-                }
-                else {
-                    dispatch(setIsDoubleInsurance(false))
-                    dispatch(setPremiumSum(parseFloat(data.res.premium)))
-                    dispatch(setPremiumSum2(premium_life))
-                    dispatch(setInsuranceCompany(data.res.company))
-                    dispatch(setInsuranceCompany2(''))
-                }
-                props.setIsLoadCost(false)
-                props.setShowCostPolicy(true)
-            })
-        })
-    }
-
     const handleChangePropertyOption = () => {
-        if (idBank === '1') {
+        dispatch(setPremiumSum(0))
+        dispatch(setPremiumSum2(0))
+        if (idBank === '1' || idBank === '2') {
             if (!propertyOption) {
                 props.setShowCostPolicy(false)
                 props.setIsLoadCost(true)
@@ -299,7 +273,6 @@ export function InfoCalc(props) {
                     handleGetCostPolicyLife()
                 }
                 else {
-                    dispatch(setPremiumSum(0))
                     props.setIsLoadCost(false)
                     props.setShowCostPolicy(true)
                 }
@@ -319,6 +292,8 @@ export function InfoCalc(props) {
     }
 
     const handleChangeGender = (e) => {
+        dispatch(setPremiumSum(0))
+        dispatch(setPremiumSum2(0))
         props.setShowCostPolicy(false)
         setGender(e.target.value)
     }
@@ -340,6 +315,41 @@ export function InfoCalc(props) {
         window.ym(90426649,'reachGoal','oformit_onlayn')
     }
 
+    const handleGetCostPolicyLifeAndProperty = () => {
+        setListInsurance([])
+        preCalcLife({
+            cookie: cookie,
+            token: token,
+            limit_sum: mortgageBalance,
+            sex: gender === '1' ? 'М': 'Ж',
+            birthday: birthday.toISOString().slice(0, -5),
+            id_bank: idBank
+        }, (data) => {
+            let premium_life = parseFloat(data.res.premium)
+            let company_life = data.res.company
+            console.log('company_life', company_life)
+            preCalc({token: token, cookie: cookie, limit_sum: mortgageBalance, id_bank: idBank}, (data) => {
+                console.log(data)
+                if (data.res.company !== company_life) {
+                    dispatch(setIsDoubleInsurance(true))
+                    dispatch(setPremiumSum(parseFloat(data.res.premium)))
+                    dispatch(setPremiumSum2(premium_life))
+                    dispatch(setInsuranceCompany(data.res.company))
+                    dispatch(setInsuranceCompany2(company_life))
+                }
+                else {
+                    dispatch(setIsDoubleInsurance(false))
+                    dispatch(setPremiumSum(parseFloat(data.res.premium)))
+                    dispatch(setPremiumSum2(premium_life))
+                    dispatch(setInsuranceCompany(data.res.company))
+                    dispatch(setInsuranceCompany2(''))
+                }
+                props.setIsLoadCost(false)
+                props.setShowCostPolicy(true)
+            })
+        })
+    }
+
     const handleGetCostPolicyLife = () => {
         setListInsurance([])
         dispatch(setIsDoubleInsurance(false))
@@ -348,9 +358,10 @@ export function InfoCalc(props) {
         preCalcLife({
             cookie: cookie,
             token: token,
-            limit_sum: props.mortgageBalance,
+            limit_sum: mortgageBalance,
             sex: gender === '1' ? 'М': 'Ж',
-            birthday: startDate.toISOString().slice(0, -5),
+            birthday: birthday.toISOString().slice(0, -5),
+            id_bank: idBank
         }, (data) => {
             dispatch(setPremiumSum(parseFloat(data.res.premium)))
             dispatch(setInsuranceCompany(data.res.company))
@@ -364,7 +375,7 @@ export function InfoCalc(props) {
         dispatch(setIsDoubleInsurance(false))
         dispatch(setPremiumSum2(0))
         dispatch(setInsuranceCompany2(''))
-        preCalc({token: token, cookie: cookie, limit_sum: props.mortgageBalance}, (data) => {
+        preCalc({token: token, cookie: cookie, limit_sum: mortgageBalance, id_bank: idBank}, (data) => {
             dispatch(setPremiumSum(parseFloat(data.res.premium)))
             dispatch(setInsuranceCompany(data.res.company))
             props.setIsLoadCost(false)
@@ -374,7 +385,7 @@ export function InfoCalc(props) {
 
     const handleClickGetCost = () => {
         props.setIsLoadCost(true)
-        if (idBank === '1') {
+        if (idBank === '1' || idBank === '2') {
             dispatch(setIsManagerCost(false))
             if (lifeOption) {
                 if (propertyOption) {
@@ -402,21 +413,27 @@ export function InfoCalc(props) {
     }
 
     const handleChangeTypeObject = (e) => {
-        if (e.target.value !== 1 &&  e.target.value !== 4) {
+        if (e.target.value !== '1' &&  e.target.value !== '4') {
             setShowFormManager(true)
             let element = document.getElementById('type_obj');
             element.value = '1';
         }
+        else {
+            dispatch(setTypeObject(e.target.value))
+        }
     }
 
     const handleChangeBank = (e) => {
+        console.log('idbank', e.value)
+        dispatch(setPremiumSum(0))
+        dispatch(setPremiumSum2(0))
         dispatch(setIdBank(e.value))
-        if (e.value !== '1') {
-                handleParseData()
+        props.setShowCostPolicy(false)
+        if (e.value !== '1' && e.value !== '2') {
+                handleParseData(e.value)
         }
         else {
-            props.setShowCostPolicy(false)
-            dispatch(setPremiumSum(0))
+            props.setIsLoadCost(false)
             dispatch(setInsuranceCompany('СК Абсолют'))
         }
     }
@@ -432,6 +449,29 @@ export function InfoCalc(props) {
         },
     };
 
+    const handleChangeDate = (date) => {
+        props.setShowCostPolicy(false)
+        props.setIsLoadCost(true)
+        handleChangeBirthDay()
+        dispatch(setBirthday(date))
+    } 
+
+    const handleSelectTypeProperty = (type) => {
+        if (type !== 'Квартира' && type !== 'Апартаменты') {
+            setShowFormManager(true)
+        }
+        else {
+            dispatch(setTypeObject(type))
+        }
+    }
+
+    function handleSetMortgageBalance(value) {
+        dispatch(setMortgageBalance(value.replace(/ /g, '')))
+        props.setShowCostPolicy(false)
+        dispatch(setPremiumSum(0))
+        dispatch(setPremiumSum2(0))
+    }
+
     return (
         <>
             <Modal
@@ -446,9 +486,15 @@ export function InfoCalc(props) {
                 <div className="title-calc">
                     
                 </div>
+                
                 <div className='frame'>
                     <div className="row m-2">
                         <div className="calc-info-block-3 p-0">
+                        {/* <div onClick={() => {testPrint({cookie: cookie, id: 'A1CB705B-F8DD-4C2A-A0F2-AA7CA6C47984'}, (data) => {
+                    console.log('print res', data)
+                })}}>
+                    test
+                </div> */}
                             <div className="d-flex align-items-start flex-column w-100 font-raleway-700">
                                 <label >Банк-Кредитор</label>
                                 <div className="w-100 mt-1">
@@ -471,14 +517,14 @@ export function InfoCalc(props) {
                             <div className="form-group d-flex align-items-start flex-column w-100 font-raleway-700 p-0 ms-2">
                                 <label className='text-nowrap'>Остаток по ипотеке</label>
                                 <div className="w-100 position-relative input-group mt-1">
-                                    <input id='inp_mort' type="text" className="form-control bg-lg w-100" value={digitNumber(props.mortgageBalance)} 
+                                    {/* <input id='inp_mort' type="text" className="form-control bg-lg w-100" value={digitNumber(mortgageBalance.toString())} 
                                         onChange={(e) => {
                                                 let inp = document.getElementById('inp_mort')
                                                 let pos_cur = inp.selectionStart
                                                 // console.log('m', e.target.value.replace(/ /g, '') )
                                                 if (!isNaN(e.target.value[e.target.value.length-1])) {
                                                     props.setShowCostPolicy(false)
-                                                    props.setMortgageBalance(e.target.value.replace(/ /g, ''))
+                                                    dispatch(setMortgageBalance(e.target.value.replace(/ /g, '')))
                                                     dispatch(setPremiumSum(0))
                                                 }
                                                 inp.setSelectionRange(pos_cur, pos_cur)
@@ -487,11 +533,12 @@ export function InfoCalc(props) {
                                     />
                                     <input type="range" className="form-range pos-input-range" max="20000000" 
                                         onChange={(e) => {
-                                            props.setMortgageBalance(e.target.value.replace(/ /g, ''))
+                                            dispatch(setMortgageBalance(e.target.value.replace(/ /g, '')))
                                             props.setShowCostPolicy(false)
                                             dispatch(setPremiumSum(0))
                                         }}
-                                    />
+                                    /> */}
+                                    <RangeInput setValue={handleSetMortgageBalance} value={mortgageBalance} max={'50000000'}/>
                                 </div>
                             </div>
                         </div>
@@ -499,14 +546,15 @@ export function InfoCalc(props) {
                             <div className="form-group d-flex align-items-start flex-column font-raleway-700">
                                 <label className='text-nowrap'>Тип недвижимости</label>
                                 <div className="w-100 mt-1">
-                                    <select id='type_obj'  value={typeObject} className="form-select form-select bg-lg" onChange={handleChangeTypeObject}>
-                                        <option value="1">Квартира</option>
+                                    {/* <select id='type_obj'  value={typeObject} className="form-select form-select bg-lg" onChange={handleChangeTypeObject}>
+                                        <option value="1">Квартира <span>&#10004;</span></option>
                                         <option value="2">Комната</option>
                                         <option value="3">Частный дом</option>
-                                        <option value="4">Апартаменты</option>
+                                        <option value="4">Апартаменты <span>&#10004;</span></option>
                                         <option value="5">Таунхаус</option>
                                         <option value="6">Коммерческая</option>
-                                    </select>
+                                    </select> */}
+                                    <DropDown listItem={TYPES_OBJECT_ABSOLUTE} handleSelectItem={handleSelectTypeProperty} value={typeObject}/>
                                 </div>
                             </div>
                         </div>
@@ -570,43 +618,16 @@ export function InfoCalc(props) {
                                 
                             </div>
                             
-                            <div className="">
+                            <div className={lifeOption ? 'container-ife-params': 'hidde-life-params'}>
                                 <div className="row">
                                     <div className="col-6">
-                                        <label className=''>Дата рождения</label>
-                                        {/* <input className='form-control fs' type="text" placeholder="ГГГГ-ММ-ДД"/> */}
-                                        <DatePicker 
-                                            selected={startDate} 
-                                            onChange={(date) => {
-                                                props.setShowCostPolicy(false)
-                                                props.setIsLoadCost(true)
-                                                // handleGetCostPolicyLife()
-                                                handleChangeBirthDay()
-                                                setStartDate(date)
-                                            }} 
-                                            className='birthday f-s bg-lg'
-                                            disabled={!lifeOption}
-                                            dateFormat="yyyy-MM-dd"
-                                            placeholderText='Возраст'
-                                            peekNextMonth
-                                            showMonthDropdown
-                                            showYearDropdown
-                                            dropdownMode="select"
-                                        />
+                                        <label className='font-raleway-700 text-nowrap'>Дата рождения</label>
+                                        <Calendar handleChangeDate={handleChangeDate} startDate={birthday}/>
                                     </div>
 
                                     <div className="col-6">
-                                        <label className='fs'>Пол</label>
-                                        {/* <select 
-                                            className=" f-s gender bg-lg" 
-                                            disabled={!lifeOption} 
-                                            value={gender} 
-                                            onChange={handleChangeGender}
-                                        >
-                                            <option value="1">Муж.</option>
-                                            <option value="2">Жен.</option>
-                                        </select> */}
-                                        <select className="form-select form-select bg-lg f-s" value={gender} onChange={handleChangeGender}>
+                                        <label className='font-raleway-700'>Пол</label>
+                                        <select className="form-select gender bg-lg f-s" value={gender} onChange={handleChangeGender}>
                                             <option value="1">Муж</option>
                                             <option value="2">Жен</option>
                                         </select>
@@ -648,36 +669,18 @@ export function InfoCalc(props) {
                             
                         </div>
                         <div className='calc-info-block2-2 p-0'>
-                            { idBank === '1' ?
+                            { idBank === '1' || idBank === '2' ?
                                 (
                                     <div className="form-group personal-cost ms-2 mt-4">
                                         <div className='calc-discount f-raleway-xs'>{ `- ${discount} %`}</div>
                                         <label className='f-raleway-gr'>Для вас</label>
                                         <div className="policy-cost ps-3 py-1 f-raleway-m-gr">{digitNumber(Math.round((premiumSum + premiumSum2)).toString()) + ' ₽'}</div>
-                                        <div className='row mx-0 p-0 mb-0 mt-2'>    
-                                            <div className='col-6 m-0 py-0 credit-info-month px-2 f-raleway-xs d-flex align-items-center'>
-                                                {`${Math.round(premiumSum/6)}р x 6`}
-                                            </div>
-                                            <div className='col-6 f-raleway-12 text-nowrap'>
-                                                в рассрочку
-                                                <span className='position-relative'
-                                                    onMouseEnter={() => {
-                                                        setShowPromtCredit(true)
-                                                    }
-                                                    }
-                                                    onMouseLeave={() => {
-                                                        setShowPromtCredit(false)
-                                                    }}
-                                                >
-                                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M9 15.75C12.7279 15.75 15.75 12.7279 15.75 9C15.75 5.27208 12.7279 2.25 9 2.25C5.27208 2.25 2.25 5.27208 2.25 9C2.25 12.7279 5.27208 15.75 9 15.75Z" stroke="#2CA5EC" strokeWidth="1.125" strokeLinecap="round" strokeLinejoin="round"/>
-                                                        <path d="M9 10.6875V10.125C9.44501 10.125 9.88002 9.99304 10.25 9.74581C10.62 9.49857 10.9084 9.14717 11.0787 8.73604C11.249 8.32491 11.2936 7.87251 11.2068 7.43605C11.12 6.99959 10.9057 6.59868 10.591 6.28401C10.2763 5.96934 9.87541 5.75505 9.43895 5.66823C9.0025 5.58142 8.5501 5.62597 8.13896 5.79627C7.72783 5.96657 7.37643 6.25496 7.12919 6.62497C6.88196 6.99498 6.75 7.42999 6.75 7.875" stroke="#2CA5EC" strokeWidth="1.125" strokeLinecap="round" strokeLinejoin="round"/>
-                                                        <path d="M9 13.7812C9.46599 13.7812 9.84375 13.4035 9.84375 12.9375C9.84375 12.4715 9.46599 12.0938 9 12.0938C8.53401 12.0938 8.15625 12.4715 8.15625 12.9375C8.15625 13.4035 8.53401 13.7812 9 13.7812Z" fill="#2CA5EC"/>
-                                                    </svg>
-                                                    {showPromtCredit ? <div className='font-raleway-700 fs-12 promt-credit text-wrap'>{promtCredit}</div>: null}
-                                                </span>
-                                            </div>
-                                        </div>
+                                        <CreditInfo6
+                                            premiumSum={premiumSum}
+                                            setShowPromtCredit={setShowPromtCredit}
+                                            showPromtCredit={showPromtCredit}
+                                            promtCredit={promtCredit}
+                                        />
                                     </div>
                                 ):
                                 (
@@ -690,7 +693,7 @@ export function InfoCalc(props) {
                         <div className='calc-info-block2-3  p-0'>
                             <div>
                                 <label className='f-raleway-15 mt-3 mb-1'>{!isDoubleInsurance ? insuranceCompany: 'Две компании'}</label>
-                                <Button text={idBank === '1' ? 'Оформить онлайн': 'Оформить с менеджером'} handleClick={handleClickToReg}/>
+                                <Button text={idBank === '1' || idBank === '2' ? 'Оформить онлайн': 'Оформить с менеджером'} handleClick={handleClickToReg}/>
                                 <div className="info-wrapper">
                                     <p className="fs f-raleway-12">
                                         Необходимые документы
@@ -731,7 +734,7 @@ export function InfoCalc(props) {
                     </div>
 
 
-                    {idBank === '1' ?
+                    {idBank === '1' || idBank === '2'?
                     (
                         <>
                             <div className="check-price-wrapper m-2">

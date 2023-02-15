@@ -181,6 +181,21 @@
   color: #FFFFFF;
 }
 
+.f-raleway-xs-green {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  /* or 16px */
+
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  /* Фон 1 бел */
+
+  color: #24A200;
+}
+
 .f-raleway-15 {
   font-family: 'Raleway';
   font-style: normal;

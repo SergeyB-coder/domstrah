@@ -9,7 +9,8 @@ import { list_banks, list_banks1 } from '../../static/Const/vars';
 import Select from 'react-select'
 import { getSettings } from '../Person/personapi';
 import { getTokens, getZetta, preCalc } from './calcapi';
-import { setCookie, setPremiumSum, setToken } from '../Home/homeSlice';
+import { selectMortgageBalance, setCookie, setMortgageBalance, setPremiumSum, setToken } from '../Home/homeSlice';
+import { RangeInput } from './calcElements';
 
 
 
@@ -18,10 +19,10 @@ export function MainCalc(props) {
     const dispatch = useDispatch();
     const typeObject = useSelector(selectTypeObject)
     const idBank = useSelector(selectIdBank)
+    const mortgageBalance = useSelector(selectMortgageBalance)
     const setShowFormManager = props.setShowFormManager
     const setAnother_bank = props.setAnother_bank
     const page = props.page
-    const [indBank, setIndBank] = useState(0)
 
     function yandex_m_bank(n) {
         if (n === '1') {
@@ -65,19 +66,12 @@ export function MainCalc(props) {
     const handleChangeBank = (e) => {
         yandex_m_bank(e.value)
         dispatch(setIdBank(e.value))
-        setIndBank(parseInt(e.value))
         if (parseInt(e.value) > 1) {
             setAnother_bank(true)
             // setShowFormManager(true)
         } 
 
     }
-
-    const renderedListBanks = list_banks.map(bank => {
-        return (
-                <option key={bank.value} className='' value={bank.value}>{bank.name}</option>
-        )
-    })
 
     function handleGetDiscount() {
         getSettings({user_id: props.userId}, function(data) {
@@ -98,18 +92,25 @@ export function MainCalc(props) {
         props.setCalcStep('info')
         setAnother_bank(false)        
         handleGetDiscount()
-        props.getToken()
-        // getTokens(function(data) {
-        //     dispatch(setToken(data.res.token))
-        //     dispatch(setCookie(data.res.cookie))
-        //     preCalc({token: data.res.token, cookie: data.res.cookie, limit_sum: props.mortgageBalance}, (data) => {
-        //         // console.log('preCalc', data)
-        //         dispatch(setPremiumSum(parseFloat(data.res.premium)))
-        //         dispatch(setInsuranceCompany(data.res.company))
-        //         props.setIsLoadCost(false)
-        //         props.setShowCostPolicy(true)
-        //     })
-        // })
+        // props.getToken()
+        getTokens(function(data) {
+            dispatch(setToken(data.res.token))
+            dispatch(setCookie(data.res.cookie))
+            if (mortgageBalance !== 0) {
+               preCalc({token: data.res.token, cookie: data.res.cookie, limit_sum: mortgageBalance, id_bank: idBank}, (data) => {
+                    // console.log('preCalc', data)
+                    dispatch(setPremiumSum(parseFloat(data.res.premium)))
+                    dispatch(setInsuranceCompany(data.res.company))
+                    props.setIsLoadCost(false)
+                    props.setShowCostPolicy(true)
+                }) 
+            }
+            else {
+                props.setIsLoadCost(false)
+                props.setShowCostPolicy(true)
+            }
+            
+        })
     }
 
     const handleChangeTypeObject = (e) => {
@@ -121,12 +122,14 @@ export function MainCalc(props) {
 
     const handleChangeMortgageBalance = (e) => {
         if (!isNaN(e.target.value[e.target.value.length-1])) {
-            props.setMortgageBalance(e.target.value.replace(/ /g, ''))
+            dispatch(setMortgageBalance(e.target.value.replace(/ /g, '')))
         }
     }
 
     
-
+    function handleSetMortgageBalance(value) {
+        dispatch(setMortgageBalance(value.replace(/ /g, '')))
+    }
 
     return (
         <>
@@ -160,12 +163,13 @@ export function MainCalc(props) {
                             <div className="form-group d-flex align-items-start flex-column font-raleway-700 ">
                             <label className='color-gr f-s15'>Остаток по ипотеке</label>
                             <div className="input-wrapper position-relative input-group mt-2">
-                                <input type="text" className="inp-calc form-control f-raleway-x-mini" value={digitNumber(props.mortgageBalance.toString())} onChange={handleChangeMortgageBalance}/>
-                                <input type="range" className="form-range pos-input-range" max="20000000"
+                                {/* <input type="text" className="inp-calc form-control f-raleway-x-mini" value={digitNumber(mortgageBalance.toString())} onChange={handleChangeMortgageBalance}/> */}
+                                {/* <input type="range" className="form-range pos-input-range" max="20000000"
                                     onChange={(e) => {
-                                        props.setMortgageBalance(e.target.value.replace(/ /g, ''))
+                                        dispatch(setMortgageBalance(e.target.value.replace(/ /g, '')))
                                     }}
-                                />
+                                /> */}
+                                <RangeInput setValue={handleSetMortgageBalance} value={mortgageBalance} max={'50000000'}/>
                             </div>
                             </div>
                         </div>

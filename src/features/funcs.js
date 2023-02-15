@@ -8,7 +8,13 @@ export function validPhone(phone) {
         }
         else {
             if (!isNaN(phone[ind])) {
-                valid_phone += '+' + phone[ind]
+                if (phone[ind] !== '7') {
+                    valid_phone += '+7(' + phone[ind]
+                    ind += 2
+                }
+                else {
+                    valid_phone += '+' + phone[ind]
+                }
             }
             ind += 2
         }

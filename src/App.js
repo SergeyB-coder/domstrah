@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import {
   BrowserRouter,
   Routes,
@@ -22,6 +23,9 @@ import { Contacts } from './components/Contacts/contacts';
 import { OneNews } from './components/News/onenews';
 import { OnePromo } from './components/Promo/onepromo';
 import { BannerPromo } from './components/BannerPromo/bannerpromo';
+import { LegalInfo } from './components/LegalInfo/legalinfo';
+import { Pay } from './components/Pay/pay';
+import { Success } from './components/Success/success';
 
 function App() {
   const [userId, setUserId] = useState('')
@@ -145,6 +149,24 @@ function App() {
               menuText={menuText}
               isCustomer={isCustomer}
             />
+          }
+        />
+        <Route
+          path="/legal"
+          element={
+            <LegalInfo/>
+          }
+        />
+        <Route
+          path="/pay/:s/:n"
+          element={
+            <Pay/>
+          }
+        />
+        <Route
+          path="/success"
+          element={
+            <Success/>
           }
         />
       </Routes>

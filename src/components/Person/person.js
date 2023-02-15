@@ -78,9 +78,6 @@ export function Person(props) {
     const [filterCreditValue, setFilterCreditValue] = useState('all') // succes, fail, wait
     const [filterCreditStatus, setFilterCreditStatus] = useState('')
 
-     
-     
-
     
     const [policeinfo, setPoliceinfo] = useState(
         {
@@ -318,10 +315,6 @@ export function Person(props) {
         setStatus_simple(info_credit.status_simple)
         setModalStatusCreditOpen(true)
     }
-
-
-
-
     
     function handleClickDeal(police) {
         setPoliceinfo(police)
@@ -340,7 +333,7 @@ export function Person(props) {
                         </div>
                         {policy.status === 1 ? 
                             (
-                                <div className='cur-p-h' onClick={() => {handleGetPdfPolicy(policy.id)}}>
+                                <div className='cur-p-h' onClick={() => {handleGetPdfPolicy(policy.id, policy.path)}}>
                                     Скачать
                                 </div>
                             ): null
@@ -373,7 +366,7 @@ export function Person(props) {
                             >
                                 {policy.id}
                             </div>
-                            <div className='cur-p-h' onClick={() => {handleGetPdfPolicy(policy.id)}}>
+                            <div className='cur-p-h' onClick={() => {handleGetPdfPolicy(policy.id, policy.path)}}>
                                 Скачать
                             </div>
                         </div>
@@ -410,9 +403,10 @@ export function Person(props) {
                         >
                             {policy.id}
                         </div>
-                        <div className='cur-p-h' onClick={() => {handleGetPdfPolicy(policy.id)}}>
+                        {policy.status === 'Оплачен' ?
+                        <div className='cur-p-h' onClick={() => {handleGetPdfPolicy(policy.id, policy.path)}}>
                             Скачать
-                        </div>
+                        </div>: null}
                     </td>
                     <td className='fs-13'>{policy.company}</td>
                     <td className='fs-13'>{policy.fullname}</td>
@@ -554,18 +548,35 @@ export function Person(props) {
     }
 
 
-    const handleGetPdfPolicy = (isn) => {
-        getPDF({isn: isn.toString(), token: token}, function(data) {
-            if (data.res) {
-                var newWin = window.open("about:_blank", "hello", "width=1000,height=800");
-                newWin.document.write(`
-                    <embed src="https://c61437.na4u.ru/static/policies/` + data.path + `.pdf" width="1000" height="800" 
-                    type="application/pdf"/>
-                `);
-            }
-            else alert(data.error)
+    const handleGetPdfPolicy = (isn, path) => {
+        // getPDF({isn: isn.toString(), token: token}, function(data) {
+        //     if (data.res) {
+        //         var newWin = window.open("about:_blank", "hello", "width=1000,height=800");
+        //         newWin.document.write(`
+        //             <embed src="https://c61437.na4u.ru/static/policies/` + data.path + `.pdf" width="1000" height="800" 
+        //             type="application/pdf"/>
+        //         `);
+        //     }
+        //     else alert(data.error)
             
-        })
+        // })
+        var newWin = window.open("about:_blank", "hello", "width=1000,height=800");
+        console.log('path', path)
+        if (path === 'z') {
+            console.log(path, isn)
+            newWin.document.write(`
+                <embed src="https://c61437.na4u.ru/static/policies_zetta/` + isn + `.pdf" width="1000" height="800" 
+                type="application/pdf"/>
+            `);
+        }
+        else if (path !== '') {
+            newWin.document.write(`
+                <embed src="https://c61437.na4u.ru/static/policies/` + path + `.pdf" width="1000" height="800" 
+                type="application/pdf"/>
+            `);
+        }
+        
+
     }
 
     const handleGetToken = () => {
@@ -806,7 +817,7 @@ export function Person(props) {
                             </div>
                             <div className='person-info-item mt-4'>
                                 <label>Мобильный телефон</label>
-                                <PhoneInput placeholder='+7' specialLabel='' type="tel" inputClass="form-control person-input" value={phone}
+                                <PhoneInput placeholder='+7' specialLabel='' type="tel" inputclassName="form-control person-input" value={phone}
                                     onChange={handleChangePhone}
                                 />
                             </div>
@@ -825,7 +836,7 @@ export function Person(props) {
                     { content === 'policies' ? (
                         <>
                             <div>
-                                <table class="table bg-w brd-r5 mt-4">
+                                <table className="table bg-w brd-r5 mt-4">
                                 <thead>
                                     <tr>
                                         <th scope="col" className='fs-13'>ID</th>
@@ -921,47 +932,47 @@ export function Person(props) {
                             <>
                                 <div className='row '>
                                     <div className='col-1 d-flex align-items-center'>
-                                        <label class="form-check-label mx-2 font-filter-credit " for="w">
+                                        <label className="form-check-label mx-2 font-filter-credit " for="w">
                                             Все
                                         </label>
-                                        <input class="form-check-input m-0 p-0" type="radio" name='w' id='w'  
+                                        <input className="form-check-input m-0 p-0" type="radio" name='w' id='w'  
                                             onChange={onChangeFilterCreditsAll}
                                             checked={filterCreditValue === 'all'}
                                         />
                                     </div>
                                    
                                     <div className='col-1 d-flex align-items-center'>
-                                        <label class="form-check-label mx-2 font-filter-credit" for="w">
+                                        <label className="form-check-label mx-2 font-filter-credit" for="w">
                                             Одобрено
                                         </label>
-                                        <input class="form-check-input m-0 p-0" type="radio" name='w' id='w' 
+                                        <input className="form-check-input m-0 p-0" type="radio" name='w' id='w' 
                                             onChange={onChangeFilterCreditsSucces}
                                             checked={filterCreditValue === 'succes'}
                                         />
                                     </div>
                                     <div className='col-1 d-flex align-items-center'>
-                                        <label class="form-check-label mx-2 font-filter-credit" for="w" >
+                                        <label className="form-check-label mx-2 font-filter-credit" for="w" >
                                             Отказы
                                         </label>
-                                        <input class="form-check-input m-0 p-0" type="radio" name='w' id='w' 
+                                        <input className="form-check-input m-0 p-0" type="radio" name='w' id='w' 
                                             onChange={onChangeFilterCreditsFail}
                                             checked={filterCreditValue === 'fail'}
                                         />
                                     </div>
                                     <div className='col-2 d-flex align-items-center'>
-                                        <label class="form-check-label mx-2 font-filter-credit" for="w">
+                                        <label className="form-check-label mx-2 font-filter-credit" for="w">
                                             На рассмотрении
                                         </label>
-                                        <input class="form-check-input m-0 p-0" type="radio" name='w' id='w' 
+                                        <input className="form-check-input m-0 p-0" type="radio" name='w' id='w' 
                                             onChange={onChangeFilterCreditsWait}
                                             checked={filterCreditValue === 'wait'}
                                         />
                                     </div>
                                     <div className='col-2 d-flex align-items-center'>
-                                        <label class="form-check-label mx-2 font-filter-credit" for="w">
+                                        <label className="form-check-label mx-2 font-filter-credit" for="w">
                                             Архив
                                         </label>
-                                        <input class="form-check-input m-0 p-0" type="radio" name='w' id='w' 
+                                        <input className="form-check-input m-0 p-0" type="radio" name='w' id='w' 
                                             onChange={onChangeFilterCreditsArchiv}
                                             checked={filterCreditValue === 'archiv'}
                                         />
@@ -1034,7 +1045,7 @@ export function Person(props) {
 
                     { navButton === 'deals' ?
                         <div>
-                            <table class="table bg-w brd-r5 mt-4">
+                            <table className="table bg-w brd-r5 mt-4">
                                 <thead>
                                     <tr>
                                         <th scope="col" className='fs-13'>ID</th>
@@ -1069,7 +1080,7 @@ export function Person(props) {
 
                     { navButton === 'credits' ?
                         <div>
-                            <table class="table bg-w brd-r5 mt-4">
+                            <table className="table bg-w brd-r5 mt-4">
                                 <thead>
                                     <tr>
                                         <th scope="col" className='fs-13'>ID</th>
@@ -1107,26 +1118,26 @@ export function Person(props) {
                     { navButton === 'settings' ? 
                         <div className='bg-w brd-r5 mt-4 p-2'>
                             <label for="basic-url" className="form-label">Комиссия брокера (участвует в отображении статистики продаж в админке)</label>
-                            <div class="input-group mb-3 w-50">
-                                <input type="text" class="form-control" value={brokerCommission} onChange={handleChangeBrokerCommission}/>
-                                <span class="input-group-text" id="basic-addon3">%</span>
+                            <div className="input-group mb-3 w-50">
+                                <input type="text" className="form-control" value={brokerCommission} onChange={handleChangeBrokerCommission}/>
+                                <span className="input-group-text" id="basic-addon3">%</span>
                             </div>
-                            <label for="basic-url" class="form-label">Отображаемая скидка (показывает скидку при предварительном расчете в калькуляторе)</label>
-                            <div class="input-group mb-3 w-50">
-                                <input type="text" class="form-control" value={discount} onChange={handleChangeDiscount}/>
-                                <span class="input-group-text" id="basic-addon3">%</span>
+                            <label for="basic-url" className="form-label">Отображаемая скидка (показывает скидку при предварительном расчете в калькуляторе)</label>
+                            <div className="input-group mb-3 w-50">
+                                <input type="text" className="form-control" value={discount} onChange={handleChangeDiscount}/>
+                                <span className="input-group-text" id="basic-addon3">%</span>
                             </div>
-                            <label for="basic-url" class="form-label">Подсказка опции Жизнь</label>
-                            <div class="input-group mb-3 w-50">
-                                <input type="text" class="form-control" value={promt} onChange={handleChangePromt}/>
+                            <label for="basic-url" className="form-label">Подсказка опции Жизнь</label>
+                            <div className="input-group mb-3 w-50">
+                                <input type="text" className="form-control" value={promt} onChange={handleChangePromt}/>
                             </div>
-                            <label for="basic-url" class="form-label">Подсказка опции Рассрочка</label>
-                            <div class="input-group mb-3 w-50">
-                                <input type="text" class="form-control" value={promtCredit} onChange={handleChangePromtCredit}/>
+                            <label for="basic-url" className="form-label">Подсказка опции Рассрочка</label>
+                            <div className="input-group mb-3 w-50">
+                                <input type="text" className="form-control" value={promtCredit} onChange={handleChangePromtCredit}/>
                             </div>
-                            <label for="basic-url" class="form-label">Email для заявки менеджеру</label>
-                            <div class="input-group mb-3 w-50">
-                                <input type="text" class="form-control" value={email_manager} onChange={handleChangeEmailManager}/>
+                            <label for="basic-url" className="form-label">Email для заявки менеджеру</label>
+                            <div className="input-group mb-3 w-50">
+                                <input type="text" className="form-control" value={email_manager} onChange={handleChangeEmailManager}/>
                             </div>
                             <div className='ms-0 row w-50 d-flex justify-content-end'>
                                 <div className='w-25 m-0 p-0'>

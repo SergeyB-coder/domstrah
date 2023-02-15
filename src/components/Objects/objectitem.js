@@ -22,7 +22,8 @@ import { HomeNews } from '../Home/home_news';
 import { sendGetPromo } from '../Promo/promoapi';
 import { sendGetNews } from '../News/newsapi';
 import { useDispatch, useSelector } from 'react-redux';
-import { setToken } from '../Home/homeSlice';
+import { selectMortgageBalance, setToken } from '../Home/homeSlice';
+import { ObjectInfo } from './objectinfo';
 
 export function ObjectItem(props) {
     const dispatch = useDispatch();
@@ -40,7 +41,7 @@ export function ObjectItem(props) {
 
     // calc
     const [calcStep, setCalcStep] = useState('main') // main, info, registration
-    const [mortgageBalance, setMortgageBalance] = useState(0)
+    const mortgageBalance = useSelector(selectMortgageBalance)
     const [premiumSum, setPremiumSum] = useState(0)
     const [discount, setDiscount] = useState(0)
     
@@ -53,6 +54,28 @@ export function ObjectItem(props) {
     const [another_bank, setAnother_bank] = useState(false)
     const [listPromo, setListPromo] = useState([])
     const [listNews, setListNews] = useState([])
+    const [title1, setTitle1] = useState([])
+    const [block1_title1, setBlock1_title1] = useState([])
+    const [block1_text1, setBlock1_text1] = useState([])
+    const [block1_title2, setBlock1_title2] = useState([])
+    const [block1_text2, setBlock1_text2] = useState([])
+    const [block1_title3, setBlock1_title3] = useState([])
+    const [block1_text3, setBlock1_text3] = useState([])
+
+    const [img_url, setImg_url] = useState([])
+
+    const [title2, setTitle2] = useState([])
+
+    const [block2_title1, setBlock2_title1] = useState([])
+    const [block2_text1, setBlock2_text1] = useState([])
+    const [block2_title2, setBlock2_title2] = useState([])
+    const [block2_text2, setBlock2_text2] = useState([])
+    const [block2_title3, setBlock2_title3] = useState([])
+    const [block2_text3, setBlock2_text3] = useState([])
+    const [block2_title4, setBlock2_title4] = useState([])
+    const [block2_text4, setBlock2_text4] = useState([])
+    const [text, setText] = useState([])
+    
     
 
     function handleInfoObject(ind) {
@@ -68,6 +91,25 @@ export function ObjectItem(props) {
             setCommissioning(data.commiss)
             setIssuance_keys(data.get_keys)
             setAddres(data.address)
+
+            setTitle1(data.title1)
+            setBlock1_title1(data.block1_title1)
+            setBlock1_text1(data.block1_text1)
+            setBlock1_title2(data.block1_title2)
+            setBlock1_text2(data.block1_text2)
+            setBlock1_title3(data.block1_title3)
+            setBlock1_text3(data.block1_text3)
+            setImg_url(data.img_url)
+            setTitle2(data.title2)
+            setBlock2_title1(data.block2_title1)
+            setBlock2_text1(data.block2_text1)
+            setBlock2_title2(data.block2_title2)
+            setBlock2_text2(data.block2_text2)
+            setBlock2_title3(data.block2_title3)
+            setBlock2_text3(data.block2_text3)
+            setBlock2_title4(data.block2_title4)
+            setBlock2_text4(data.block2_text4)
+            setText(data.text)
         })
     }
 
@@ -189,7 +231,7 @@ export function ObjectItem(props) {
                         </div>
                     </div>
                     
-                    <div className='col-objitem-6 block1 p-0'>
+                    <div className='col-objitem-6-img block1 p-0'>
                         <img className=' w-100' src={photoObject}/>
                     </div>
                 </div>
@@ -246,8 +288,6 @@ export function ObjectItem(props) {
             {calcStep === 'main' ? (
                     <MainCalc 
                         setCalcStep={setCalcStep}
-                        mortgageBalance={mortgageBalance}
-                        setMortgageBalance={setMortgageBalance}
                         getToken={handleGetToken}
                         getCostPolicy={getCostPolicy}
                         handleGetDiscount={handleGetDiscount}
@@ -262,8 +302,6 @@ export function ObjectItem(props) {
             {calcStep === 'info' ? (
                 <InfoCalc 
                     setCalcStep={setCalcStep}
-                    mortgageBalance={mortgageBalance}
-                    setMortgageBalance={setMortgageBalance}
                     premiumSum={premiumSum}
                     discount={discount}
                     getCostPolicy={getCostPolicy}
@@ -282,14 +320,33 @@ export function ObjectItem(props) {
                 <RegPolice 
                     lifeOption={lifeOption}
                     setCalcStep={setCalcStep}
-                    mortgageBalance={mortgageBalance}
-                    setMortgageBalance={setMortgageBalance}
                     setShowFormManager={setShowFormManager}
                 />
             ): null}
 
             {calcStep === 'main' ? (
                 <>
+                    <ObjectInfo
+                        title1={title1}
+                        block1_title1={block1_title1}
+                        block1_text1={block1_text1}
+                        block1_title2={block1_title2}
+                        block1_text2={block1_text2}
+                        block1_title3={block1_title3}
+                        block1_text3={block1_text3}
+                        img_url={img_url}
+                        title2={title2}
+                        block2_title1={block2_title1}
+                        block2_text1={block2_text1}
+                        block2_title2={block2_title2}
+                        block2_text2={block2_text2}
+                        block2_title3={block2_title3}
+                        block2_text3={block2_text3}
+                        block2_title4={block2_title4}
+                        block2_text4={block2_text4}
+                        text={text}
+                    />
+
                     <Included/>
 
                     <Confidence/>
@@ -301,6 +358,8 @@ export function ObjectItem(props) {
                     <HomeNews listNews={listNews}/>
                 </>
             ): null}
+
+            
             <Footer/>
         </>
     );

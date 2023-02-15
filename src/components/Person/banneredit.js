@@ -98,9 +98,9 @@ export function BannerEdit() {
                     />
                 </div>
                 
-                <div class="col-3 form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" checked={bannerIsOn} onChange={handleChangeSwitchBanner}/>
-                    <label class="form-check-label f-raleway-12">Отображение на главной странице</label>
+                <div classname="col-3 form-check form-switch">
+                    <input classname="form-check-input" type="checkbox" role="switch" checked={bannerIsOn} onChange={handleChangeSwitchBanner}/>
+                    <label classname="form-check-label f-raleway-12">Отображение на главной странице</label>
                 </div>
             </div>
             

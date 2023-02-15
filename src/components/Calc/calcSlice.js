@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  typeObject: '1',
+  typeObject: 'Квартира',
   idBank: '1',
   isManagerCost: false,
   insuranceLogo: '',
@@ -10,7 +10,7 @@ const initialState = {
   promtCredit: '',
   promt: '',
   promtProperty: '',
-  discount: 0,
+  discount: 11,
   isDoubleInsurance: false,
 };
 

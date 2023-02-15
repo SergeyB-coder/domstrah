@@ -1,8 +1,24 @@
 @media (max-width: 700px) {
+    .m-m-1 {
+        margin-top: 1vh;
+    }   
+
+    .pressure-up-select {
+        width: 40vw;
+    }
+
+    .button-back-mobile {
+        /* position: absolute;
+        top: 1px;
+        left: 1vw; */
+        height: 5px;
+    }
+
     .col-doc-title-3 {
         /* width: 50vw; */
         margin-left: 2vw;
     }
+
     .issue_by {
         width: 74vw;
     }
@@ -10,10 +26,11 @@
     .address-reg {
         width: 74vw;
     }
+
     .container-reg {
         /* padding: 2vh; */
         position: absolute;
-        top: 80vh;
+        top: 53vh;
         left: 3vw;
         /* margin-top: 10vh;
         margin-left: 15vw; */
@@ -52,14 +69,17 @@
     }
 
     .col-doc-3 {
+        margin-top: 10px;
         width: 80vw;
     }
 
     .col-number-2 {
+        margin-top: 10px;
         width: 80vw
     }
 
     .col-issue-date-2 {
+        margin-top: 10px;
         width: 35vw;
     }
 
@@ -68,17 +88,35 @@
         width: 35vw;
         margin-left: auto;
         margin-right: 7vw;
+        margin-top: 10px;
+    }
+
+    .inp-code {
+        width: 35vw;
+    }
+
+    .col-drink-2 {
+        margin-top: 10px;
+        width: 80vw
+    }
+
+    .col-prof-2 {
+        margin-top: 10px;
+        width: 80vw
     }
 
     .col-bank-4 {
-        width: 35vw;
+        margin-top: 10px;
+        width: 80vw;
     }
 
     .col-balance-4 {
-        width: 35vw;
+        margin-top: 10px;
+        width: 80vw;
     }
 
     .col-creditnumber-4 {
+        margin-top: 10px;
         width: 80vw;
     }
 
@@ -89,6 +127,7 @@
     }
 
     .col-datebegin-4 {
+        margin-top: 10px;
         width: 80vw;
     }
 
@@ -97,7 +136,7 @@
     }
 
     .col-yearbuild-2 {
-        width: 35vw;
+        width: 40vw;
     }
 
     .col-addressobj-6 {
@@ -134,7 +173,7 @@
     }
 
     .birthday-reg {
-        height: 4.5vh;
+        height: 5vh;
         width: 100%;
         border-color: #c8c7c7;
         border-radius: 5px;
@@ -147,10 +186,100 @@
         z-index: 15;
         width: 80vw;
     }
+
+    .inp-holder {
+        margin-top: 10px;
+        /* background-color: #fafafa; */
+        /* height: 4.5vh; */
+        /* width: 73vw; */
+        height: 5vh;
+    }
+
+    .inp-object {
+        /* margin-top: 10px; */
+        /* background-color: #fafafa; */
+        /* height: 4.5vh; */
+        /* width: 73vw; */
+        /* height: 5vh; */
+    }
+
+    .promt {
+        word-wrap: break-word;
+        padding: 3px;
+        position: absolute;
+        top: 3vh;
+        width: 40vw;
+        background-color: #f8f9f8;
+        border-radius: 3px;
+        border: 1px solid #24A200;
+        box-shadow: 2px 2px 2px rgb(85, 84, 84);
+        z-index: 10;
+    }
+
+    .month-pay-input {
+        border-color: #c8c7c7;
+        border-radius: 5px;
+        border-width: 1px;
+        border-style: solid;
+        height: 4.5vh;
+        width: 80vw;
+        padding-left: 5px;
+    }
+
+    .col-credit-4 {
+        margin-top: 10px;
+    }
+
+    .col-drink-3 {
+        width: 80vw;
+    }
+
+    .col-zetta-1 {
+        width: 40vw;
+    }
+
+    .block {
+        height: 7vh;
+    }
 }
 
 
 @media (min-width: 700px) {
+    .col-drink-3 {
+        width: 18vw;
+    }
+
+    .month-pay-input {
+        border-color: #c8c7c7;
+        border-radius: 5px;
+        border-width: 1px;
+        border-style: solid;
+        height: 4.5vh;
+        width: 16vw;
+        padding-left: 5px;
+    }
+
+    .month-pay {
+        width: 16vw;
+    }
+
+    .pressure-up-select {
+        width: 9vw;
+    }
+
+    .promt {
+        word-wrap: break-word;
+        padding: 3px;
+        position: absolute;
+        top: 3vh;
+        width: 15vw;
+        background-color: #f8f9f8;
+        border-radius: 3px;
+        border: 1px solid #24A200;
+        box-shadow: 2px 2px 2px rgb(85, 84, 84);
+        z-index: 10;
+    }
+
     .birthday-reg {
         height: 5vh;
         width: 100%;
@@ -161,7 +290,9 @@
         padding-left: 5px;
     }
 
-    
+    .button-back-mobile {
+        display: none;
+    }
 
     .col-doc-title-3 {
         width: 18vw;
@@ -211,6 +342,14 @@
         width: 12vw
     }
 
+    .col-number-1 {
+        width: 9vw
+    }
+
+    .col-zetta-1 {
+        width: 15%;
+    }
+
     .col-issue-date-2 {
         padding: 0;
         margin-left: 1vw;
@@ -226,21 +365,38 @@
         width: 11vw;
     }
 
+    .col-drink-2 {
+        margin-left: 3vw;
+        margin-right: 0;
+        width: 13vw;
+
+    }
+
+    .col-prof-2 {
+        margin-left: auto;
+        margin-right: 0;
+        width: 11vw;
+    }
+
     .cont-date {
         width: 100%;
         /* margin-left: 5vw; */
     }
 
     .col-bank-4 {
-        width: 27vw;
+        width: 25vw;
     }
 
     .col-balance-4 {
-        width: 27vw;
+        width: 25vw;
     }
 
     .col-creditnumber-4 {
-        width: 27vw;
+        width: 25vw;
+    }
+
+    .col-credit-4 {
+        width: 19vw;
     }
 
     .container-data {
@@ -254,15 +410,15 @@
     }
 
     .col-typeestate-4 {
-        width: 25vw;
+        width: 15%;
     }
 
     .col-yearbuild-2 {
-        width: 15vw;
+        width: 15%;
     }
 
     .col-addressobj-6 {
-        width: 45vw;
+        width: 60%;
     }
 
     .col-checkobj-6 {
@@ -297,6 +453,21 @@
         z-index: 15;
         width: 40vw;
     }
+
+    .inp-holder {
+        /* background-color: #fafafa; */
+        height: 5vh;
+    }
+
+    .block {
+        height: 3vh;
+    }
+}
+
+.col-buy-3-premium {
+    /* position: absolute;
+    top: -10px;
+    z-index: 20; */
 }
 
 
@@ -315,9 +486,7 @@
 
 
 
-.inp-holder {
-    background-color: #fafafa;
-}
+
 
 .fs-10 {
     font-size: 10px;
@@ -331,18 +500,7 @@ input:invalid {
     border-color: red;
 }
 
-.promt {
-    word-wrap: break-word;
-    padding: 3px;
-    position: absolute;
-    top: 3vh;
-    width: 10vw;
-    background-color: #f8f9f8;
-    border-radius: 3px;
-    border: 1px solid #24A200;
-    box-shadow: 2px 2px 2px rgb(85, 84, 84);
-    z-index: 10;
-}
+
 
 .button-credit {
     display: inline-block; 

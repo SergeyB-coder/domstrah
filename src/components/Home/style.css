@@ -184,12 +184,23 @@
     .banner {
         display: none;
     }
+    .include-confidence-card {
+        width: 300px;
+        padding: 3vh;
+    }
 }
 
 @media (min-width: 700px) {
+
+    .include-confidence-card {
+        width: 18vw;
+        padding: 3vh;
+    }
+
     .m-title1 {
         margin-left: 10vw;
     }
+
     .question {
         margin-top: 40vh;
     }
@@ -274,13 +285,13 @@
 
     .prefooter-include-mortgage {
         background: #3F3F3F;
-        height: 35vh;
+        height: 40vh;
         position: relative;
     }
 
     .footer-include-mortgage {
         position: absolute;
-        top: 28vh;
+        top: 33vh;
         background: rgba(255, 255, 255, 0.1);
         height: 7vh;
         /* width: 98.5vw; */
@@ -375,10 +386,7 @@
 
 
 
-.include-confidence-card {
-    width: 300px;
-    padding: 3vh;
-}
+
 
 
 

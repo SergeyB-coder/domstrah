@@ -58,7 +58,7 @@ export function FormManager(props) {
     }
 
     const handleClickClose = () => {
-        dispatch(setTypeObject('1'))
+        dispatch(setTypeObject('Квартира'))
         closeModalFormManager()
     }
 

@@ -10,6 +10,7 @@ const initialState = {
   cookie: '', // zetta
   premium_sum: 0,
   premium_sum2: 0,
+  mortgageBalance: 3000000,
 };
 
 export const homeSlice = createSlice({
@@ -43,6 +44,9 @@ export const homeSlice = createSlice({
     setPremiumSum2: (state, action) => {
       state.premium_sum2 = action.payload
     },
+    setMortgageBalance: (state, action) => {
+      state.mortgageBalance = action.payload
+    }
   },
 });
 
@@ -55,7 +59,8 @@ export const {
   setCookie,
   setToken,
   setPremiumSum,
-  setPremiumSum2
+  setPremiumSum2,
+  setMortgageBalance
 } = homeSlice.actions;
 
 export const selectBannerUrl = (state) => state.home.banner_url;
@@ -67,5 +72,6 @@ export const selectToken = (state) => state.home.token;
 export const selectCookie = (state) => state.home.cookie;
 export const selectPremiumSum = (state) => state.home.premium_sum;
 export const selectPremiumSum2 = (state) => state.home.premium_sum2;
+export const selectMortgageBalance = (state) => state.home.mortgageBalance;
 
 export default homeSlice.reducer;

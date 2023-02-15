@@ -97,26 +97,8 @@ export function getTokens(callback) {
 }
 
 export function preCalc(par, callback) {
-  fetch('https://c61437.na4u.ru/precalc', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        token: par.token,
-        cookie: par.cookie,
-        limit_sum: par.limit_sum
-      })
-  })
-  .then((response) => response.json())
-  .then((data) => {
-          return callback(data)
-  });
-}
-
-export function preCalcLife(par, callback) {
-  fetch('https://c61437.na4u.ru/precalclife', {
+  // fetch('https://c61437.na4u.ru/precalc', {
+  fetch('https://c61437.na4u.ru/precalc1', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -126,8 +108,48 @@ export function preCalcLife(par, callback) {
         token: par.token,
         cookie: par.cookie,
         limit_sum: par.limit_sum,
+        id_bank: par.id_bank
+      })
+  })
+  .then((response) => response.json())
+  .then((data) => {
+          return callback(data)
+  });
+}
+
+export function preCalcLife(par, callback) {
+  fetch('https://c61437.na4u.ru/precalclife1', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id_bank: par.id_bank,
+        token: par.token,
+        cookie: par.cookie,
+        limit_sum: par.limit_sum,
         sex: par.sex,
         birthday: par.birthday,
+      })
+  })
+  .then((response) => response.json())
+  .then((data) => {
+          return callback(data)
+  });
+}
+
+
+export function testPrint(par, callback) {
+  fetch('https://c61437.na4u.ru/testprint', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: par.id,
+        cookie: par.cookie
       })
   })
   .then((response) => response.json())
